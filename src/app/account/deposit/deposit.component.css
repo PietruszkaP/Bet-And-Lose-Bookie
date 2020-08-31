@@ -1,0 +1,154 @@
+
+.wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(209, 199, 199, 0.75);
+  z-index: 50;
+}
+
+.deposit{
+  width: 800px;
+  height: 420px;
+  position: fixed;
+  top: 40vh;
+  left: 32vw;
+  background-color: #141414;
+  border-radius: 5px;
+}
+
+.title{
+  width: 100%;
+  height: 40px;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  line-height: 40px;
+}
+.close{
+  color:white;
+  position: absolute;
+  top:0;
+  right: 0;
+}
+input{
+  outline: none;
+}
+.fa{
+  margin: 8px 13px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.fa:hover{
+  color: #fc0;
+}
+.info{
+  color:white;
+  display: flex;
+  width: 95%;
+  align-items: center;
+  margin: 5px auto;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+i.fa.fa-info{
+  margin-right: 20px;
+  color: #fc0;
+}
+.content{
+  display: flex;
+  width: 95%;
+  margin: 10px auto;
+  justify-content: space-between;
+}
+.left{
+  flex-basis: 22%;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-radius: 3px;
+}
+.right{
+  flex-basis: 74%;
+  height: 300px;
+  background-color: black;
+  border-radius: 3px;
+  color: white;
+}
+img{
+  width: 100%;
+  border-radius: 3px;
+  height: 60px;
+  cursor: pointer;
+}
+h3{
+  padding: 5px 20px;
+  width: 520px;
+  border-bottom: 0.5px solid gray;
+}
+.tinyinput{
+  margin: 5px 20px;
+  display: flex;
+  width: 200px;
+  align-items: center;
+  border: 1px solid #fc0;
+  border-radius: 3px;
+}
+.currency{
+  color: white;
+  background-color: #fc0;
+  padding: 5px 10px;
+}
+label{
+  padding: 3px 0 0 20px;
+  margin-top: 4px;
+  display: inline-block;
+}
+input{
+  padding: 7px;
+  width: 100%;
+  border: 0px solid black;
+}
+.inputs{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fc0;
+  width: 200px;
+  margin: 5px 20px;
+}
+.month{
+  flex-basis: 30%;
+  border: 1px solid #fc0;
+  border-radius: 3px;
+}
+.year{
+  flex-basis: 30%;
+  border: 1px solid #fc0;
+  border-radius: 3px;
+}
+label{
+  font-size: 13px;
+}
+.place{
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  text-decoration: none;
+  margin: 15px 20px;
+  padding: 8px 0;
+  background-color: #43bd35;
+  border: 1px solid #43bd35;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+}
+

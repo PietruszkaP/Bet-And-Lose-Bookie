@@ -1,0 +1,186 @@
+
+.container{
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  background-color: black;
+}
+.numbers{
+  width: 334px;
+  height: 40px;
+  display: flex;
+  margin: 10px auto 30px auto;
+  justify-content: space-between;
+}
+.number{
+  border: 1px solid gray;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #5c5c5c;
+}
+.number.two{
+  background-color: white;
+}
+.number.one{
+  border: 1px solid black;
+}
+i{
+  color: #43bd35;
+  font-size: 24px;
+}
+.break{
+  width: 85px;
+  border-top: 1px solid #929292;
+  /* color: rgb(92,92,92); */
+  line-height: 20px;
+  margin: 20px 0;
+}
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+input{
+  width: 334px;
+  height: 50px;
+  margin: 5px auto 5px auto;
+  box-sizing: border-box;
+  border: 1px solid #929292;
+  border-radius: 3px;
+  background-color: black;
+  outline: none;
+  cursor: text;
+  color:white;
+  padding: 20px 0 2px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+button{
+  width: 334px;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  background-color: #fc0;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-weight: 700;
+  margin: 15px auto;
+  cursor: pointer;
+  outline: none;
+}
+button.disabled{
+  cursor: wait;
+}
+
+div.flex{
+  display: flex;
+  color: white;
+  margin: 0 auto;
+  width: 334px;
+}
+
+input[type="radio"]{
+  display: none;
+}
+div.item{
+  width: 167px;
+}
+label.female,
+label.male{
+  width: 167px;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1.3;
+  align-items: center;
+  margin: 5px 0 5px 0;
+  height: 50px;
+  border: 1px solid #929292;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+label.male{
+  border-radius: 3px 0 0 3px;
+}
+label.female{
+  border-radius: 0 3px 3px 0;
+}
+input[type="radio"]:checked + label{
+  border: 1px solid white;
+}
+input:focus{
+  box-shadow: inset 0 -2px 0 #1284e0;
+}
+input.ng-invalid.ng-touched{
+  box-shadow: inset 0 -2px 0 #ff4c00;
+}
+input.ng-valid.ng-touched{
+  box-shadow: inset 0 -2px 0 #43bd35;
+}
+div.name,
+div.surname{
+  margin: 0 auto;
+  position: relative;
+}
+
+label.name,
+label.surname{
+  position: absolute;
+  color: white;
+  top: 21px;
+  left:20px;
+  transition: .5s;
+  pointer-events: none;
+}
+input[type="text"]:focus ~ label,
+input[type="text"]:valid ~ label{
+  top: 10px;
+  left: 20px;
+  font-size: 12px;
+}
+input[type="text"]:focus{
+  box-shadow: inset 0 -2px 0 #1284e0;
+}
+input[type="text"].ng-invalid.ng-touched{
+  box-shadow: inset 0 -2px 0 #ff4c00;
+}
+input[type="text"].ng-valid.ng-touched{
+  box-shadow: inset 0 -2px 0 #43bd35;
+}
+input[type="text"].ng-invalid.ng-touched ~label{
+  top: 10px;
+  left: 20px;
+  font-size: 12px;
+}
+
+
+.fa.fa-exclamation-circle{
+  color: #ff4c00;
+  position: absolute;
+  top: 18px;
+  right: 12px;
+  font-size: 22px;
+}
+.fa.fa-check-circle{
+  color: #43bd35;
+  position: absolute;
+  top: 18px;
+  right: 12px;
+  font-size: 22px;
+}
+a.router{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color:black;
+}
+a.router.disabled{
+  cursor: wait;
+}

@@ -1,0 +1,110 @@
+
+
+<div class="wrap">
+  <div class="container">
+    <div class="last">
+      <form>
+        <label><input type="radio"value="24hours"[(ngModel)]="field.data"
+          [ngModelOptions]="{standalone: true}">Last 24 hours</label>
+        <label><input type="radio"value="7days"[(ngModel)]="field.data"
+          [ngModelOptions]="{standalone: true}">Last 7 days</label>
+        <label><input type="radio"value="24days"[(ngModel)]="field.data"
+          [ngModelOptions]="{standalone: true}">Last 24 days</label>
+        <button class="view"type="submit" (click)="viewLastBets()">VIEW TRANSACTIONS</button>
+      </form>
+
+      <p class="note">Please note, transactions older than 3 years may not be available.
+        If you wish to view these transactions, please contact customer services.</p>
+    </div>
+    <div class="details">
+     <div class="won-bets">
+        <div class="won" *ngFor="let wonBet of wonBets; let i = index">
+        <div class="blue">
+          <i class="fa fa-check" aria-hidden="true"></i>
+          <p class="acumulator">
+            {{wonBet.bets.length > 1 ? 'Acumulator': 'Single'}}
+            @{{wonBet.finalOdds | number: '1.2'}}
+          </p>
+          <p class="stake">Stake: £{{wonBet.stake}}</p>
+        </div>
+        <div class="green">
+          <i class="fa fa-trophy" aria-hidden="true"></i>
+          <p>You won £{{wonBet.newpotentialReturn}} (inc.stake)</p>
+        </div>
+        <div class="bets" *ngIf="clickedWon && selectedWon === i && titleWon ==='won'">
+          <li class="bets-bet" *ngFor="let be of wonBet.bets">
+            <div class="game">
+              <i class="far fa-futbol" aria-hidden="true"><span class="won">Won</span></i>
+              <p class="match">
+                {{be.game}}
+                <br>
+              <span class="full-time"> Full Time Result</span>
+              </p>
+              <span class="game-odd">@{{be.odd}} </span>
+            </div>
+          </li>
+        </div>
+        <div class="info">
+          <i class="fas fa-info"></i>
+          <p>Bet details <span class="date">{{wonBet.date |  date: 'short'}}</span></p>
+          <i class="fa fa-chevron-up open close"(click)="close(i, 'false')" aria-hidden="true"
+           *ngIf="openWon && selectedWon === i && titleWon==='won'" ></i>
+          <i class="fa fa-chevron-down open"[ngClass]="{'NO': selectedWon=== i && clickedWon && titleWon==='won'}"
+           (click)="close(i, 'true', 'won')"  aria-hidden="true"></i>
+        </div>
+        </div>
+     </div>
+
+    <div class="lost-bets">
+      <div class="lost" *ngFor="let lostBet of lostBets; let i = index">
+        <div class="blue">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <p class="acumulator">
+            {{lostBet.bets.length > 1 ? 'Acumulator': 'Single'}}
+            @{{lostBet.finalOdds | number: '1.2'}}
+          </p>
+          <p class="stake">Stake: £{{lostBet.stake}}</p>
+        </div>
+        <div class="green">
+          <i class="fa fa-trophy" aria-hidden="true"></i>
+          <p>You lost £{{lostBet.stake}} </p>
+        </div>
+        <div class="bets" *ngIf="clickedLose && selectedLose === i && titleLose ==='lost'">
+          <li class="bets-bet" *ngFor="let be of lostBet.bets">
+            <div class="game">
+
+              <i class="fas fa-times-circle" aria-hidden="true"><span class="won">Lost</span></i>
+              <p class="match">
+                {{be.game}}
+                <br>
+              <span class="full-time"> Full Time Result</span>
+              </p>
+              <span class="game-odd">@{{be.odd}} </span>
+            </div>
+          </li>
+        </div>
+        <div class="info">
+          <i class="fas fa-info"></i>
+          <p>Bet details <span class="date">{{lostBet.date |  date: 'short'}}</span></p>
+          <i class="fa fa-chevron-up open close"(click)="lost(i, 'false')" aria-hidden="true"
+           *ngIf="openLose && selectedLose === i && titleLose==='lost'" ></i>
+          <i class="fa fa-chevron-down open"[ngClass]="{'NO': selectedLose=== i && clickedLose && titleLose ==='lost'}"
+          (click)="lost(i, 'true', 'lost')"  aria-hidden="true"></i>
+        </div>
+        </div>
+    </div>
+
+
+      <div class="content">
+        <p *ngIf="display" class="no-bets">Sorry, there are no transactions for your requested search criteria,
+          please select alternative dates.
+        </p>
+      </div>
+      <app-loading-spinner *ngIf="spiner"></app-loading-spinner>
+    </div>
+
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

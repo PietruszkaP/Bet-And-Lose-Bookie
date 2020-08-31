@@ -1,0 +1,42 @@
+
+
+.open{
+  margin: 0 auto;
+  width:80%;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+h2{
+  padding: 80px 0 0 0;
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(242,172, 14);
+}
+h1{
+  padding: 80px 0 0 0;
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(242,172, 14);
+}
+
+p.not-open{
+  text-align: center;
+  line-height: 500px;
+}
+
+app-open-bet{
+  display: flex;
+  background-color:  rgb(242,172, 14);
+  flex-basis: 250px;
+  height:  350px;
+  color:white;
+  border-radius: 5px;
+  margin: 15px;
+}
+
+div.containterr{
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

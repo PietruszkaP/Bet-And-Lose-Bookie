@@ -1,0 +1,121 @@
+
+div.wrap{
+  position: absolute;
+  left: 10%;
+  top: 0;
+  width: 80%;
+  height: 92%;
+}
+div.container{
+  background-color: black;
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+div.helpcontact{
+color: white;
+display: flex;
+position: absolute;
+top: 40px;
+left: 100px;
+font-size: 24px;
+line-height: 58px;
+}
+div.border{
+  height: 58px;
+  width:58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: white;
+  margin: 0 20px 0 0;
+}
+div.helpcontact i{
+  color: black;
+  font-size: 40px;
+}
+div.elements{
+  width: 880px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 400px;
+  margin: 150px auto;
+}
+div.elements div{
+  background-color: #242424;
+  width: 200px;
+  height: 200px;
+  flex-basis: 23%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  border: 1px solid #c1c1c1;
+  border-radius: 3px;
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+}
+div.elements div:hover{
+  border: 1px solid #fb0;
+}
+div.elements div p{
+  padding: 0px 10px;
+  margin-top: 30px;
+  text-align: center;
+}
+div.elements div span.small{
+  color: #666;
+  font-size: 16px;
+}
+div.elements div span.small-no{
+  color: #242424;
+}
+div.elements div.verify{
+  flex-basis: 100%;
+  height: 150px;
+  position: relative;
+}
+div.elements div.verify{
+cursor: initial;
+}
+div.elements div.verify i {
+position: absolute;
+top: 30%;
+left: 6%;
+}
+div.elements div.verify p{
+  position: absolute;
+  top: 10%;
+  left: 12%;
+}
+div.elements div.verify p.bottom{
+  top: 30%;
+  font-size: 18px;
+  color: #c1c1c1;
+}
+button.upload{
+  width: 210px;
+  position: absolute;
+  cursor: none;
+  top: 30%;
+  left: 70%;
+  font-size: 16px;
+  padding: 15px 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid white;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+}
+div.elements i{
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  font-size: 40px;
+  color: #fb0;
+}

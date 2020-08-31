@@ -1,0 +1,33 @@
+
+
+
+.container{
+  color: white;
+  width: 620px;
+  display: flex;
+  text-align: left;
+  /* font-size: 1rem; */
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 30px 0 40px 35px;
+}
+h3{
+  padding-bottom: 20px;
+  font-size: .875remrem;
+  color: #ccc;
+  width: 100%;
+}
+h2{
+  padding: 10px 0;
+}
+p{
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+a{
+  color: #1284E0;
+}
+ul{
+  padding: 10px 0 20px 20px;
+}

@@ -1,0 +1,90 @@
+/* div.wrap{
+  position: absolute;
+  left: 10%;
+  top: 37%;
+  background-color: black;
+  width: 80%;
+  height: 600px;
+} */
+div.container{
+
+  width:100%;
+  box-sizing: border-box;
+  padding: 40px 0 0 60px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 600px;
+}
+div.container i.fa.fa-university{
+  width: 60px;
+  height: 60px;
+  color: black;
+  background-color: white;
+  font-size: 30px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+div.container p{
+  color: white;
+  line-height: 60px;
+  font-size: 24px;
+  padding: 0 0 0 15px;
+}
+div.title{
+  display: flex;
+  height: 90px;
+  margin: 0 0 0 160px;
+}
+
+div.details{
+  display: flex;
+  flex-basis: 85%;
+  height: 50px;
+  border-bottom: thin solid white;
+}
+div.details p{
+  font-size: 18px;
+  color: lightgray;
+  padding: 0;
+}
+div.content p{
+  font-size: 16px;
+  padding: 0;
+  line-height: 30px;
+
+}
+div.container div.details p.transaction{
+  padding-right: 300px;
+}
+
+div.container div.details p.amount{
+  padding-right: 280px;
+}
+div.content{
+  height: 95%;
+  display: flex;
+}
+div.content ul li{
+  display: flex;
+  padding: 5px 0;
+}
+div.container div.content p.amount{
+width: 230px
+}
+div.container div.content p.transaction{
+  padding-right: 165px;
+  width: 200px;
+}
+div.content i{
+  color:rgb(58, 150, 46);
+  font-size: 30px;
+  line-height: 30px;
+  padding: 0 10px 0 0;
+}
+div.content i.fa.fa-arrow-circle-left{
+  color: rgb(219, 16, 16)
+}
+

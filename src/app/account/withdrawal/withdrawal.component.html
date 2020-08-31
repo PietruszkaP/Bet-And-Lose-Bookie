@@ -1,0 +1,46 @@
+
+
+
+<div class="wrap">
+  <div class="withdrawal">
+    <div class="top">
+      <p>Withdrawal</p>
+      <a routerLink="/account">
+        <i class="fa fa-times" aria-hidden="true" ></i>
+      </a>
+    </div>
+    <div class="info">
+      <i class="fa fa-info" aria-hidden="true"></i>
+      <p>Select one of the Transfer Methods below and Make a Withdrawal. <span class="info-span">Congratulations</span></p>
+    </div>
+
+    <div class="content">
+
+      <p class="balance">Balance: £ {{money}}</p>
+      <p class="amountTo">Amount to Withdraw</p>
+      <div class="tinyinput">
+        <div class="currency">£</div>
+        <input type="text"  [(ngModel)]="amount">
+      </div>
+      <p class="cant" *ngIf="amount > money"> Maximum withdrawal is £ {{money}} </p>
+
+
+      <h2 class="withdrawal-details">Withdrawal Details</h2>
+      <div class="two-parts">
+        <p class="left">Withdrawal Methods</p>
+        <p class="right">Amount £ {{amount}}</p>
+      </div>
+      <div class="images">
+        <a class="bank-transfer">
+          <img src="../../../assets/fastBankTransfer.jpg" alt="bank-transfer">
+        </a>
+        <a class="card">
+          <img src="../../../assets/visa-mastercard-logo.jpg" alt="visa">
+        </a>
+      </div>
+    </div>
+    <button class="confirm"[disabled]="amount > money"[ngClass]="{disabled: amount > money}" (click)="withdrawal(amount)">Continue</button>
+
+
+
+

@@ -1,0 +1,72 @@
+
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+ height: 100%;
+  background: #242424;
+
+}
+.container{
+  position: fixed;
+  display: flex;
+  top: 15vh;
+  left: 30vw;
+  width: 35vw;
+  min-height: 600px;
+  z-index: 100;
+  background-color:#141414;
+
+}
+.logo{
+  background-color: black;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+img{
+width: 100%;
+height: 220px;
+}
+
+.title{
+  width:100%
+}
+i.fa{
+  color:white;
+  cursor: pointer;
+  font-size: 20px;
+  justify-self: flex-end;
+  margin: 0 10px;
+}
+i.fa:hover{
+    color: #fc0;
+}
+.footer{
+  height: 30px;
+  margin-top: auto;
+  color: white;
+  width: 100%;
+  padding: 15px ;
+  display: flex;
+}
+span{
+  font-size: .75rem;
+  margin: 5px 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.copyright{
+  background-image: url(./../../assets/copyright.png);
+  background-position: center;
+  background-size: center;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 30px;
+  margin-left: auto;
+  margin-bottom: 15px;
+}
+

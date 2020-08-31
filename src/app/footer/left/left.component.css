@@ -1,0 +1,32 @@
+
+.container{
+  padding: 0 40px;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+}
+i{
+  padding-right: 40px;
+  font-size: 30px;
+}
+li{
+  display: flex;
+  list-style: none;
+  flex-basis: 100%;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+a{
+  flex-basis: 100%;
+  text-align: left;
+}
+.different{
+  color: rgb(242,172, 14);
+  cursor: pointer;
+}
+.kurwa{
+  margin-left: 30%;
+}

@@ -1,0 +1,173 @@
+.wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(209, 199, 199, 0.75);
+  z-index: 50;
+}
+
+.withdrawal{
+  width: 800px;
+  height: 420px;
+  position: fixed;
+  top: 40vh;
+  left: 32vw;
+  background-color: #141414;
+  border-radius: 5px;
+}
+div.top{
+  color: white;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 40px;
+  background-color: black;
+}
+div.top p{
+flex-basis: 96%;
+padding: 0 20px;
+font-size: 18px;
+}
+div.top a{
+flex-basis: 4%;
+font-size: 20px;
+color: white;
+}
+div.top a:hover{
+  color: #fc0;
+  cursor: pointer;
+}
+
+.info{
+  color:white;
+  display: flex;
+  width: 95%;
+  align-items: center;
+  margin: 15px auto;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 11px 10px;
+  box-sizing: border-box;
+}
+.info-span{
+  color: #fc0;
+  letter-spacing: 0.5px;
+}
+i.fa.fa-info{
+  margin: 0 20px 0 5px;
+  font-size: 18px;
+  color: #fc0;
+}
+div.content{
+  box-sizing: border-box;
+  width: 95%;
+  color:  white;
+  padding-left: 40px;
+  border: 1px solid white;
+  border-radius: 3px;
+  margin: 0 auto 10px auto;
+  height: 230px;
+  font-size: 12px;
+}
+div.content p.balance{
+  width: 82%;
+  padding: 5px 0;
+  border-bottom: thin solid lightgray;
+}
+
+
+
+button.confirm{
+  margin: 5px 17px;
+  padding: 5px 50px;
+  font-size: 16px;
+  border: 1px solid #00A40A;
+  background-color: #00A40A;
+  border-radius: 3px;
+  color:white;
+  letter-spacing: 0.5px;
+  outline: none;
+  cursor: pointer;
+}
+button.confirm:hover{
+  border: 1px solid #00B40A;
+  background-color: #00B40A;
+}
+button.disabled{
+  cursor: wait;
+}
+div.two-parts{
+  width: 82%;
+  display: flex;
+  border-bottom: thin solid lightgray;
+}
+p.amountTo{
+  padding: 5px 0 2px 0;
+}
+p.cant{
+  width: 400px;
+  color: red;
+  position: absolute;
+  top: 179px;
+  left: 280px;
+  font-size: 16px;
+}
+.currency{
+  color: white;
+  background-color: #fc0;
+  padding: 5px 10px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+}
+.tinyinput{
+  box-sizing: border-box;
+  display: flex;
+  width: 200px;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+input{
+  height: 20px;
+  padding: 5px 10px;
+  width: 100%;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: 0px solid black;
+  outline: none;
+}
+.withdrawal-details{
+  padding: 5px 0 5px 0;
+  display: inline-block;
+}
+.left{
+  flex-basis: 50%;
+}
+div.images{
+  display: flex;
+  margin: 3px 0;
+  width:40%;
+  height: 60px;
+}
+div.images a{
+  width: 30%;
+  height: 60px;
+  margin: 0 5px 0 0;
+}
+div.images a img{
+  width: 100%;
+  height: 100%;
+}
+div.images a.card img{
+  width: 280px;
+  height: 60px;
+}
+
+p,h2{
+  margin:0 !important;
+}

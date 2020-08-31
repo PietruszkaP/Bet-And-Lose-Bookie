@@ -1,0 +1,210 @@
+
+.container{
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  background-color: black;
+}
+.numbers{
+  width: 334px;
+  height: 40px;
+  display: flex;
+  margin: 10px auto 30px auto;
+  justify-content: space-between;
+}
+.number{
+  border: 1px solid gray;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #5c5c5c;
+}
+.number.one{
+  background-color: white;
+}
+.break{
+  width: 85px;
+  border-top: 1px solid #929292;
+  /* color: rgb(92,92,92); */
+  line-height: 20px;
+  margin: 20px 0;
+}
+
+
+
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.fa.fa-user{
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  font-size: 22px;
+  color: #929292;
+}
+.fa.fa-lock{
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  font-size: 22px;
+  color: #929292;
+}
+input{
+  width: 334px;
+  height: 50px;
+  margin: 5px auto;
+  border: 1px solid #929292;
+  border-radius: 3px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding-left: 11px;
+  outline: none;
+}
+
+input.userID{
+  padding-left: 40px;
+}
+input.password{
+  padding-left: 40px;
+}
+div.inputs input.email:focus-within{
+  box-shadow: inset 0 -2px 0 #1284e0;
+}
+
+
+div.inputs input.userID:focus + i{
+  color: #1284e0;
+}
+div.inputs input.userID:focus-within{
+  box-shadow: inset 0 -2px 0 #1284e0;
+}
+
+div.inputs input.password:focus + i{
+  color: #1284e0;
+}
+div.inputs input.password:focus-within{
+  box-shadow: inset 0 -2px 0 #1284e0;
+}
+
+button{
+  width: 334px;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  background-color: #fc0;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-weight: 700;
+  margin: 15px auto;
+  cursor: pointer;
+  outline: none;
+}
+button.disabled{
+  cursor: wait;
+}
+
+input.ng-invalid.ng-touched{
+  box-shadow: inset 0 -2px 0 #ff4c00;
+}
+input[type="email"].ng-invalid.ng-touched ~label{
+
+  top: 10px;
+  left: 20px;
+  font-size: 12px;
+}
+
+
+input:focus ~label{
+  top: 10px;
+  left: 20px;
+  font-size: 12px;
+}
+
+input[type="text"].ng-invalid.ng-touched ~label,
+input[type="password"].ng-invalid.ng-touched ~label{
+  top: 10px;
+  left: 40px;
+  font-size: 12px;
+}
+
+
+input.ng-valid.ng-touched{
+  box-shadow: inset 0 -2px 0 #43bd35;
+}
+
+
+.fa.fa-exclamation-circle{
+  color: #ff4c00;
+  position: absolute;
+  top: 18px;
+  right: 12px;
+  font-size: 22px;
+}
+.fa.fa-check-circle{
+  color: #43bd35;
+  position: absolute;
+  top: 18px;
+  right: 12px;
+  font-size: 22px;
+}
+
+div.inputs{
+  margin: 0 auto;
+  position: relative;
+}
+label{
+  color:white;
+  position: absolute;
+  top:21px;
+  left:20px;
+  pointer-events: none;
+  transition: .5s;
+}
+label.more{
+  left: 40px;
+}
+
+input:focus ~label,
+input:valid ~label{
+  top: 10px;
+  left: 20px;
+  font-size: 12px;
+}
+
+input[type="email"]:focus,
+input[type="email"]:invalid,
+input[type="email"]:valid{
+  padding: 13px 0 0 20px;
+}
+input[type="text"]:focus ~label,
+input[type="text"]:valid ~label,
+input[type="password"]:focus ~label,
+input[type="password"]:valid ~label{
+  left: 40px;
+}
+input[type="text"]:focus,
+input[type="text"]:valid,
+input[type="text"]:invalid,
+input[type="password"]:focus,
+input[type="password"]:invalid,
+input[type="password"]:valid
+{
+  padding: 15px 0 0 40px;
+}
+p.red{
+  width: 334px;
+  margin: 0 auto; 
+  color: #ff4c00;
+  padding: 0px 10px 5px 10px;
+  font-size: .8125rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+

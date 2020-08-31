@@ -1,0 +1,42 @@
+
+div.container{
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(209, 199, 199, 0.75);
+  position: fixed;
+  z-index: 50;
+}
+div.wrap{
+  position: absolute;
+  box-sizing: border-box;
+  top:18vh;
+  left: 37vw;
+  width: 400px;
+  border-radius: 5px;
+  height: 200px;
+  background-color: #141414;
+  padding: 36px 36px 0 76px;
+  color: white;
+  font-size: 22px;
+}
+
+div.wrap button{
+  position: absolute;
+  top: 140px;
+  left: 36px;
+  width: 328px;
+  padding: 10px;
+  background-color: #fc0;
+  outline: none;
+  border: 1px solid #fc0;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 18px;
+}
+i.fa.fa-info-circle{
+  position: absolute;
+  left: 36px;
+  top: 36px;
+}

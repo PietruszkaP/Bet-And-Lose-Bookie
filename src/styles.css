@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: rgb(34, 33, 31);
+  width: 80%;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+app-menu{
+  color:black;
+  flex-basis: 100%;
+}
+app-create-bet{
+  flex-basis: 70%;
+  background-color: rgb(34, 33, 31);
+}
+app-contact{
+  flex-basis: 70%;
+  background-color:  rgb(34, 33, 31);
+}
+app-account{
+  flex-basis: 70%;
+  background-color:  rgb(34, 33, 31);
+}
+app-nav{
+  flex-basis: 100%;
+}
+app-content{
+  flex-basis: 70%;
+}
+app-aside{
+  flex-basis: 30%;
+}
+app-footer{
+  flex-basis: 100%;
+
+}
+app-won{
+  flex-basis: 70%;
+  background-color:  rgb(34, 33, 31);
+}
+app-lost{
+  flex-basis: 70%;
+  background-color:  rgb(34, 33, 31);
+}
+app-open{
+  flex-basis: 70%;
+  background-color:  rgb(34, 33, 31);
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

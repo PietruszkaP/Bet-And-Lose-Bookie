@@ -1,0 +1,35 @@
+
+<div class="container">
+<div class="wrap">
+  <div class="england">
+    <img src="../../../assets/ENGLAND.jpg">
+    <h4>ENGLAND | PREMIER LEAGUE</h4>
+    <div class="description">
+      <span>1</span>
+      <span>X</span>
+      <span>2</span>
+      <span>Goals</span>
+      <span>Over</span>
+      <span>Under</span>
+    </div>
+  </div>
+  <ul class="elements">
+    <li class="element" *ngFor="let game of premierLeague; let i = index">
+      <div class="content">
+        <div class="text">{{game.homeTeam}}</div>
+        <div class="text">{{game.awayTeam}}</div>
+        <p>9/12/20 3:00 PM</p>
+      </div>
+      <div class="odd-result"(click)="getValue(game.win, game.homeTeam, game.awayTeam, game.homeTeam, i , '1')"
+      appDropdown >{{game.win}}</div>
+      <div class="odd-result"(click)="getValue(game.draw, game.homeTeam, game.awayTeam, 'Draw', i , '2')"appDropdown>{{game.draw}}</div>
+      <div class="odd-result"(click)="getValue(game.lose, game.homeTeam, game.awayTeam, game.awayTeam, i , '3')"appDropdown>{{game.lose}}</div>
+      <div class="over-two">2.5</div>
+      <div class="odd-result more-right"(click)="getValue(game.over, game.homeTeam, game.awayTeam, 'over 2.5', i , '4')"appDropdown>{{game.over}}</div>
+      <div class="odd-result"(click)="getValue(game.under, game.homeTeam, game.awayTeam, 'under 2.5', i , '5')"appDropdown>{{game.under}}</div>
+    </li>
+  </ul>
+</div>
+</div>
+<app-betslip *ngIf="betslip.length > 0" ></app-betslip>
+

@@ -1,0 +1,45 @@
+
+
+<div class="content" *ngIf="open">
+  <div class="top" (click)="open = false">
+    <p>Betslip</p>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+  <div class="quick">Quick Bet</div>
+  <div class="selection">
+    <div class="number diferetn-position" *ngIf="open || betSlip.length > 0">{{betSlip.length}}</div>
+    <div class="selection-title">
+      Selection</div>
+      <img src="./../../../assets/BIN.jpg">
+    <div class="clear" (click)="clearBetslip()">
+      Clear Betslip</div>
+  </div>
+  <div class="betslip-array">
+    <ul>
+      <li class="betslip-element" *ngFor="let bet of betSlip; let i = index">
+        <img src="./../../../assets/BIN2.jpg" #img (click)="delete(i)">
+        <div class="bet-description">
+          <p class="bigger">{{bet.type}}</p>
+          <p>Match Betting Live</p>
+          <p>{{bet.home}} v {{bet.away}}</p>
+        </div>
+        <div class="odd">{{bet.odd}}</div>
+      </li>
+    </ul>
+    <app-confirm></app-confirm>
+  </div>
+</div>
+
+
+
+<div class="wrap">
+  <div class="betSlip" [ngClass]="{'active': open}" (click)="openBetSlip()">
+    <div class="number" *ngIf="betSlip.length > 0">{{betSlip.length}}</div>
+    <i class="fas fa-book"></i>
+    <a>Betslip</a>
+  </div>
+  <div class="myBets">
+    <i class="fas fa-envelope-open-text"></i>
+    <a routerLink="/account/open">My Bets</a>
+  </div>
+</div>

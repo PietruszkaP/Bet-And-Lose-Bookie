@@ -1,0 +1,162 @@
+.wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(209, 199, 199, 0.75);
+  z-index: 50;
+}
+
+.withdrawal{
+  width: 800px;
+  height: 420px;
+  position: fixed;
+  top: 40vh;
+  left: 32vw;
+  background-color: #141414;
+  border-radius: 5px;
+}
+div.top{
+  color: white;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 40px;
+  background-color: black;
+}
+div.top p{
+flex-basis: 96%;
+padding: 0 20px;
+font-size: 18px;
+}
+div.top a{
+flex-basis: 4%;
+font-size: 20px;
+color: white;
+}
+div.top a:hover{
+  color: #fc0;
+  cursor: pointer;
+}
+
+.info{
+  color: white;
+  display: flex;
+  width: 95%;
+  align-items: center;
+  margin: 15px auto;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 11px 10px;
+  box-sizing: border-box;
+}
+.info.danger{
+  border: 1px solid #ff4c00;
+  color:#ff4c00;
+}
+.info.danger a{
+  color: #0093D6;
+  cursor: pointer;
+  text-decoration: none;
+}
+.fa.fa-exclamation-circle{
+  color: #ff4c00;
+  padding: 0px 20px 0 0px;
+}
+
+i.fa.fa-info{
+  margin: 0 20px 0 5px;
+  font-size: 18px;
+  color: #fc0;
+}
+button.confirm{
+  margin: 15px 20px;
+  padding: 5px 30px;
+  font-size: 16px;
+  border: 1px solid #00A40A;
+  background-color: #00A40A;
+  border-radius: 3px;
+  color:white;
+  letter-spacing: 0.5px;
+  outline: none;
+  cursor: pointer;
+}
+button.confirm:hover{
+  border: 1px solid #00B40A;
+  background-color: #00B40A;
+}
+button.confirm.reverse{
+  padding: 5px 20px;
+}
+div.content{
+  border: thin solid white;
+  border-radius: 3px;
+  position: relative;
+  height: 200px;
+  width: 95%;
+  padding: 10px 20px 10px 40px;
+  box-sizing: border-box;
+  margin: 20px auto;
+  color: white;
+}
+div.content h2{
+  font-size: 18px;
+  padding-bottom: 15px;
+}
+div.options{
+  display: flex;
+  font-size: 14px;
+  padding-bottom: 5px;
+  border-bottom: thin solid white;
+}
+
+div.options p{
+  padding: 0 30px;
+}
+div.options p.until{
+  padding: 0 0 0 30px;
+}
+div.options p.method{
+  padding: 0 215px 0 0;
+}
+div.content h2.bottom{
+  position: absolute;
+  top: 165px;
+  left:40px;
+}
+
+li.pendings-element{
+  padding: 5px 0;
+  display: flex;
+  margin: 3px 0;
+  cursor: pointer;
+}
+li.pendings-element a{
+  width:100%;
+  color: white;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+}
+li.pendings-element.active{
+  border: thin solid #00B40A;
+}
+li.pendings-element p{
+  padding: 0 180px 0 0;
+}
+li.pendings-element span.amount{
+  padding: 0 30px;
+  font-size: 14px;
+}
+li.pendings-element span.requestedOn{
+  padding: 0 52px;
+  font-size: 14px;
+}
+li.pendings-element span.until{
+  font-size: 14px;
+  padding: 0 0 0 50px;
+}
+p,h2{
+  margin: 0 !important;
+}

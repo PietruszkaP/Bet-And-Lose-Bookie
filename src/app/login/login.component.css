@@ -1,0 +1,261 @@
+
+.backdrop{
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(209, 199, 199, 0.75);
+  position: fixed;
+  z-index: 50;
+}
+
+.wrap{
+  width: 20vw;
+  min-height: 40vh;
+  position: fixed;
+  background-color: #141414;
+  top: 38vh;
+  left: 38vw;
+  border-radius: 5px;
+
+}
+.title{
+  font-size: 20px;
+  width: 100%;
+  color: white;
+  font-weight: 300;
+
+}
+.top{
+  display: flex;
+  height: 50px;
+  background-color: black;
+  line-height: 50px;
+  align-items: center;
+  text-align: center;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+i.fa.fa-times{
+  color: white;
+  position: absolute;
+  top:0;
+  right: 0;
+  font-size: 20px;
+  margin: 15px 15px;
+  cursor: pointer;
+}
+i.fa.fa-times:hover{
+  color: #fc0;
+}
+form{
+  width: 334px;
+  margin: 25px auto;
+}
+
+input{
+  width: 334px;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 0 0 0 40px;
+  margin-bottom: 10px;
+  border: 0.5px solid white;
+  border-radius: 5px;
+  background-color: #141414;
+  color: white;
+  outline: none;
+}
+button{
+  width: 334px;
+  height: 50px;
+  color: black;
+  box-sizing: border-box;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 10px 0 ;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+a.login{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+button.disabled{
+  cursor: wait;
+}
+button.login{
+  background-color: #fc0;
+  border: 1px solid #fc0;
+  margin-top: 30px;
+
+}
+button.login:hover{
+  background-color: #fb0;
+  border: 1px solid #fb0;
+}
+button.button-register{
+  border: 1px solid white;
+}
+button.button-register:hover{
+  background-color: rgb(170,170,170);
+  border: 1px solid rgb(170,170,170);
+}
+
+input:focus ~label,
+input:valid ~label{
+  top: 5px;
+  left: 20px;
+  font-size: 12px;
+}
+input[type="text"].ng-invalid.ng-touched ~label,
+input[type="password"].ng-invalid.ng-touched ~label{
+  top: 5px;
+  left: 40px;
+  font-size: 12px;
+}
+
+input[type="email"]:focus,
+input[type="email"]:invalid,
+input[type="email"]:valid{
+  padding: 13px 0 0 20px;
+}
+input[type="text"]:focus ~label,
+input[type="text"]:valid ~label,
+input[type="password"]:focus ~label,
+input[type="password"]:valid ~label{
+  left: 40px;
+}
+input[type="text"]:focus,
+input[type="text"]:valid,
+input[type="text"]:invalid,
+input[type="password"]:focus,
+input[type="password"]:invalid,
+input[type="password"]:valid
+{
+  padding: 15px 0 0 40px;
+}
+
+div.inputs{
+  margin: 0 auto;
+  position: relative;
+}
+label{
+  color:white;
+  position: absolute;
+  top:21px;
+  left:40px;
+  pointer-events: none;
+  transition: .5s;
+}
+
+input.userID{
+  padding-left: 40px;
+}
+input.password{
+  padding-left: 40px;
+}
+div.inputs input.email:focus-within{
+  box-shadow: inset 0 -2px 0 #1284e0;
+}
+
+
+div.inputs input.userID:focus + i.fa.fa-user{
+  color: #1284e0;
+}
+div.inputs input.userID:focus-within{
+  box-shadow: inset 0 -2px 0 #1284e0;
+}
+
+div.inputs input.password:focus + i.fa.fa-lock{
+  color: #1284e0;
+}
+div.inputs input.password:focus-within{
+  box-shadow: inset 0 -2px 0 #1284e0;
+}
+input.ng-invalid.ng-touched{
+  box-shadow: inset 0 -2px 0 #ff4c00;
+}
+
+input.ng-valid.ng-touched{
+  box-shadow: inset 0 -2px 0 #43bd35;
+}
+input.ng-valid{
+  box-shadow: inset 0 -2px 0 #43bd35;
+}
+.fa.fa-user{
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  font-size: 22px;
+  color: #929292;
+}
+.fa.fa-lock{
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  font-size: 22px;
+  color: #929292;
+}
+div.footer{
+  width: 100%;
+  background-color: #141414;
+  color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  padding-top: 10px;
+  border-top: 0.5px solid white;
+}
+.copyright{
+  background-image: url(./../../assets/copyright.png);
+  background-position: center;
+  background-size: center;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 30px;
+  margin-left: auto;
+}
+a.help{
+  padding: 8px 0 0 30px;
+  color: white;
+  text-decoration: none;
+}
+
+.fa.fa-exclamation-circle{
+  color: #ff4c00;
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  font-size: 22px;
+}
+.fa.fa-check-circle{
+  color: #43bd35;
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  font-size: 22px;
+}
+div.error{
+  position: relative;
+  border-color: #ff4c00;
+  background-color: #ff4c00;
+  border-radius: 3px;
+  color: white;
+  width: 336px;
+  height: 86px;
+  box-sizing: border-box;
+  margin: 16px auto;
+  padding: 16px 16px 16px 48px;
+}
+p.error{
+  font-size: 14px;
+}
+.fa.fa-exclamation-circle.error{
+ position: absolute;
+ color:white;
+ top: 16px;
+ left: 16px;
+}

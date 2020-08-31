@@ -1,0 +1,31 @@
+
+
+<div class="open-bets">
+  <ul class="bets">
+    <li class="single-bet"  *ngFor="let bet of bets.bets; index as i ">
+    <p class="begining">{{bet.game}}</p><span class="end">{{bet.odd}}</span>
+    </li>
+
+  </ul>
+  <div >
+  <p class="begining stake">Stake: {{bets.stake}} £ <span class="break"></span> <span> Odds: {{bets.finalOdds | number: '1.2'}} £ </span></p>
+  <p class="begining stake">Return: {{bets.newpotentialReturn | number: '1.2'}} £</p>
+
+
+
+  <div class="container" >
+  <span class=" won" (click)="toWonBets()">
+    <i class="fa fa-check-circle" aria-hidden="true"></i>
+  </span>
+  <span class=" lost"(click)="toLostBets()">
+    <i class="fa fa-times-circle" aria-hidden="true"></i>
+  </span>
+  </div>
+</div>
+
+
+
+</div>
+
+
+

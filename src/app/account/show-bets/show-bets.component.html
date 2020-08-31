@@ -1,0 +1,38 @@
+
+
+
+<div class="container">
+  <div class="wrap">
+    <div class="england">
+      <img [src]="imageSrc">
+      <h4>{{title}}</h4>
+      <div class="description">
+        <span>1</span>
+        <span>2</span>
+        <span class="points">Points</span>
+        <span>Over</span>
+        <span>Under</span>
+      </div>
+    </div>
+    <ul class="elements">
+      <li class="element" *ngFor="let game of gamesArray; let i = index;">
+        <div class="content">
+          <div class="text">{{game.homeTeam}}</div>
+          <div class="text">{{game.awayTeam}}</div>
+          <p>9/12/20 8:00 PM</p>
+        </div>
+        <div class="odd-result"
+              (click)="getValue(game.win, game.homeTeam, game.awayTeam, game.homeTeam, i , '1', game)"
+              appDropdown >{{game.win}}</div>
+              <div class="odd-result"(click)="getValue(game.lose, game.homeTeam, game.awayTeam, game.awayTeam, i , '2', game)"
+              appDropdown>{{game.lose}}</div>
+        <div class="over-two">{{game.points}}</div>
+        <div class="odd-result more-right"(click)="getValue(game.over, game.homeTeam, game.awayTeam, 'over 2.5', i , '3', game)"
+        appDropdown>{{game.over}}</div>
+        <div class="odd-result"(click)="getValue(game.under, game.homeTeam, game.awayTeam, 'under 2.5', i , '4', game)"
+        appDropdown>{{game.under}}</div>
+      </li>
+    </ul>
+  </div>
+  </div>
+  <app-betslip *ngIf="betslip.length > 0"></app-betslip>

@@ -1,0 +1,51 @@
+
+ <div class="container">
+  <div class="numbers">
+     <div class="number one"><a style="cursor: pointer;" routerLink="/register/step1"><i class="fa fa-check" aria-hidden="true" ></i></a></div>
+     <div class="break"></div>
+     <div class="number two">2</div>
+     <div class="break"></div>
+     <div class="number">3</div>
+   </div>
+   <form  autocomplete="off" #f="ngForm">
+     <div class="flex">
+       <div class="male item">
+        <input type="radio" name="gender" id="male">
+        <label for="male" class="label male">Mr.</label>
+       </div>
+       <div class="female item">
+        <input type="radio" name="gender" id="female">
+        <label for="female" class="label female">Ms.</label>
+       </div>
+     </div>
+     <div class="name">
+        <input type="text"
+        name="name"
+        required
+        minlength="6"
+        ngModel
+        #name="ngModel"
+        >
+        <label class="name" for="name">First name</label>
+         <i *ngIf="!name.valid && name.touched" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          <i *ngIf="name.valid && name.touched" class="fa fa-check-circle" aria-hidden="true"></i>
+     </div>
+     <div class="surname">
+        <input type="text"
+        name="surname"
+        required
+        minlength="6"
+        ngModel
+        #surname="ngModel"
+        >
+        <label for="surname" class="surname">Last name</label>
+         <i *ngIf="!surname.valid && surname.touched" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          <i *ngIf="surname.valid && surname.touched" class="fa fa-check-circle" aria-hidden="true"></i>
+     </div>
+     <button type="submit" [disabled]="f.invalid"[ngClass]="{'disabled': f.invalid}">
+     <a (click)="direct(f)" class="router" [ngClass]="{'disabled': f.invalid}"> 
+        CONTINUE
+      </a>
+      </button>
+   </form>
+</div>

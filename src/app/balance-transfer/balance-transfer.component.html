@@ -1,0 +1,29 @@
+
+
+<div class="wrap">
+  <div class="container">
+    <div class="title">
+      <i class="fa fa-university" aria-hidden="true"></i>
+      <p>Summary Account Transaction</p>
+    </div>
+    <div class="details">
+      <p class="transaction">Transaction</p>
+      <p class="amount">Amount</p>
+      <p class="date">Date</p>
+    </div>
+    <div class="content">
+      <ul class="transfer">
+        <li class="transfer-element" *ngFor="let option of transactionArray">
+          <i class="fa fa-arrow-circle-right" *ngIf="option.transaction ==='Deposit'" aria-hidden="true"></i>
+          <i class="fa fa-arrow-circle-left"  *ngIf="option.transaction ==='Withdrawal'" aria-hidden="true"></i>
+          <p class="transaction">{{option.transaction}}</p>
+          <p class="amount">£ {{option.amount}}</p>
+          <p class="date">{{option.date | date: 'medium'}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  </div>
+
+

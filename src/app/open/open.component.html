@@ -1,0 +1,16 @@
+
+
+<div class="open" >
+  <p class="not-open" *ngIf="openBets.length === 0">Sorry, there are no transactions for your requested search criteria, 
+    please select alternative dates.</p>
+  <div class="containterr" [ngStyle]=" changeStyle()" >
+    <app-open-bet *ngFor="let bets of openBets; index as i" [bets]="bets" (loses)="addToLoseBets(i)" (won)="addToWonBets(i)">
+    </app-open-bet>
+  </div>
+
+</div>
+
+
+
+
+

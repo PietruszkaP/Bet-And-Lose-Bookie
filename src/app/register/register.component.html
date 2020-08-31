@@ -1,0 +1,20 @@
+
+<div class="backdrop">
+  <div class="container">
+    <div class="logo">
+      <div class="title"></div>
+        <a routerLink="/account">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+    </div>
+    <img src="./../../assets/Register.png" alt="">
+    <div class="content">
+      <router-outlet class="router"></router-outlet>
+    </div>
+    <div class="footer">
+      <span class="help">Help & contact</span>
+      <span class="responsible" (click)="direct()">Responsible Gambling</span>
+      <div class="copyright"></div>
+    </div>
+  </div>
+</div>

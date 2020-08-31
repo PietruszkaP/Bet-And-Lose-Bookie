@@ -1,0 +1,120 @@
+
+
+
+
+.container{
+  /* background-color: white; */
+  background-color: black;
+  height: 80px;
+  line-height: 80px;
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid white;
+}
+li{
+  list-style: none;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  /* color: black; */
+  color:white;
+}
+ a {
+  color: white;
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+}
+a:hover +li {
+  color:white;
+}
+
+li:hover{
+  color: white;
+  /* background-color: rgb(242,172, 14); */
+  /* border-right: 2px solid black; */
+  transition: 0.5s;
+  color: #fc0;
+}
+li:hover a {
+  color: #fc0;
+  transition: 0.5s;
+}
+.material-icons{
+  padding-right: 5px;
+  display: inline-block;
+}
+.active{
+  color: #fc0;
+  /* background-color: rgb(58, 150, 46); */
+  transition: 0.5s;
+}
+li.active a {
+ color: #fc0;
+ transition: 0.5s;
+
+}
+
+
+.right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 720px;
+}
+.right.change{
+  width: 909px;
+}
+a.login{
+  width: 80px;
+  height: 34px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.6s;
+}
+a.login:hover{
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+}
+a.login.save{
+ margin-right: 10px;
+ background-color: #fb0;
+ border: 2px solid #fb0;
+ color: black;
+ transition: .3s;
+}
+a.login.save:hover{
+border: 2px solid #fc0;
+background-color: #fc0;
+}
+.register{
+  background-color: #fb0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #141414;
+  width: 90px;
+  border: 1px solid #fb0;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 10px;
+  box-shadow: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+.register:hover{
+  border: 1px solid #fc0;
+  background-color: #fc0;
+}

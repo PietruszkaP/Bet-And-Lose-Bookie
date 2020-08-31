@@ -1,0 +1,53 @@
+
+
+div.container{
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fa0;
+}
+div.container form{
+  display: flex;
+  align-items: center;
+}
+input.stake{
+position: relative;
+width: 140px;
+padding-left: 50px;
+outline: none;
+height: 60px;
+box-sizing: border-box;
+border: 1px solid white;
+font-size: 20px;
+}
+form label.pound{
+  position: absolute;
+  top:50%;
+  font-size: 20px;
+  color: #242424;
+  left: 7%;
+  transform: translate(0%, -50%);
+}
+div.confirm{
+  position: relative;
+  width: 240px;
+  height: 60px;
+  background-color: #2db343;
+  cursor: pointer;
+  outline: none;
+}
+div.confirm p{
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+  line-height: 24px;
+  font-size: 14px;
+  text-align: center;
+}
+div.confirm p.place{
+  font-size: 18px;
+  line-height: 36px;
+}

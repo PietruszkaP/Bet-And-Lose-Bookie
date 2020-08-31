@@ -1,0 +1,36 @@
+<!-- <h4 class="money">Avalaible money : {{money}} £ </h4> -->
+
+<!-- <app-account-menu></app-account-menu> -->
+
+
+<div class="create">
+  <h2>Create your bet</h2>
+  <form (ngSubmit)="onAddBet(f)" #f="ngForm" autocomplete="off">
+    <div class="form-game">
+      <label for="game">Match</label>
+      <input type="text" name="game" ngModel class="game" required minlength="1">
+    </div>
+    <div class="form-odd">
+      <label for="name">Odd</label>
+      <input type="text"name="odd" ngModel #odd class="odd" required min-length="1">
+
+    </div>
+    <button type="submit">Add Bet</button>
+  </form>
+  <div class="coupon" *ngIf="bets.length > 0">
+    <ul class="bets">
+      <li *ngFor="let bet of bets;">
+        <span class="begining">{{bet.game}} </span>
+        <span class="end"> {{bet.odd}}</span> </li>
+      <li>
+        <span class="begining">Stake<input type="text" class="stakee" #stake ngModel></span>
+        <span class="end final">{{finalOdds | number: '1.2'}}</span>
+      </li>
+      <li>
+        <span class="begining return">Return: <span class="green">£ {{ (finalOdds  * +stake.value) | number: '1.2'}} </span></span>
+      </li>
+      <button class="submit" type="button" (click)="placeBet()">Place Bet</button>
+    </ul>
+  </div>
+
+</div>

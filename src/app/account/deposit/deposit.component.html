@@ -1,0 +1,53 @@
+
+
+<div class="wrap">
+
+    <div class="deposit">
+      <div class="title">Deposit</div>
+      <a class="close"  routerLink="/account"><i class="fa fa-times" aria-hidden="true"></i></a>
+      <div class="info">
+        <i class="fa fa-info" aria-hidden="true"></i>
+        <p>Select one of the Payment Methods below and Make a Deposit to Start Playing</p>
+      </div>
+
+      <div class="content">
+        <div class="left">
+          <img src="./../../../assets/visa.png" alt="visa" class="visa" (click)="addTitle('Debit Card')">
+          <img src="./../../../assets/paypal.jpg" alt="visa" class="paypal" (click)="addTitle('PayPal')">
+          <img src="./../../../assets/neteller.png" alt="visa" class="neteller" (click)="addTitle('Neteller')">
+          <img src="./../../../assets/entropay.jpg" alt="visa" class="entro" (click)="addTitle('EntroPay')">
+        </div>
+
+        <div class="right">
+          <h3>{{title}}</h3>
+          <form (ngSubmit)="deposit(f)" #f="ngForm" autocomplete="off">
+          <label for="currency" >Amount</label>
+          <div class="tinyinput">
+            <div class="currency">£</div>
+            <input type="text" id="amount" ngModel name="amount">
+            </div>
+
+            <label for="currency">Debit Card number</label>
+          <div class="tinyinput">
+              <input type="text" id="currency" placeholder="**** **** **** 9126 Active">
+          </div>
+              <label for="currency">Expiry date</label>
+              <div class="inputs">
+                <input type="text" id="month" class="month" placeholder="07">/
+                <input type="text" id="year" class="year" placeholder="21">
+                </div>
+                  <button class="place" type="submit">Deposit</button>
+
+              </form>
+        </div>
+
+       
+
+
+
+
+      </div>
+
+    </div>
+
+</div>

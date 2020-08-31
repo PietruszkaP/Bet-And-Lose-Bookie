@@ -1,0 +1,72 @@
+
+
+
+ <div class="container">
+  <div class="numbers">
+     <div class="number one"><a style="cursor: pointer;"
+     routerLink="/register/step1"><i class="fa fa-check" aria-hidden="true"></i></a></div>
+     <div class="break"></div>
+     <div class="number two">
+       <a style="cursor: pointer;" routerLink="/register/step2"><i class="fa fa-check" aria-hidden="true"></i>
+       </a>
+      </div>
+     <div class="break"></div>
+     <div class="number three">3</div>
+   </div>
+   <form autocomplete="off">
+    <div class="address">
+      <input type="text"
+      class="adres"
+      ngModel
+      required
+      #address="ngModel"
+      minlength="8"
+      name="address"
+      id="address"
+      >
+      <label class="placeholder" for="address">Enter your address please</label>
+      <i *ngIf="!address.valid && address.touched" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+      <i *ngIf="address.valid && address.touched" class="fa fa-check-circle" aria-hidden="true"></i>
+    </div>
+    <div class="tel">
+      <input type="tel"
+      class="telephone"
+      ngModel
+      required
+      #tel="ngModel"
+      minlength="8"
+      id="tel"
+      name="tel">
+      <label  class="placeholder" for="tel">Mobile number</label>
+      <i *ngIf="!tel.valid && tel.touched" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+      <i *ngIf="tel.valid && tel.touched" class="fa fa-check-circle" aria-hidden="true"></i>
+    </div>
+    <p class="freeBets">I would like to receive FreeBets, bonuses and offers from betAndLose via:</p>
+
+    <form class="form-checkbox">
+     <div class="check">
+       <input type="checkbox" id="Email" name="Email" value="Email">
+       <label class="checks" for="Email">Email</label>
+     </div>
+     <div class="check">
+       <input type="checkbox" id="SMS" name="SMS" value="SMS">
+       <label class="checks" for="SMS">SMS</label>
+    </div>
+    <div class="check">
+      <input type="checkbox" id="PhoneCall" name="PhoneCall" value="PhoneCall">
+      <label class="checks" for="PhoneCall">Phone Call</label>
+    </div>
+    <div class="check">
+      <input type="checkbox" id="Post" name="Post" value="Post">
+      <label class="checks" for="Post">Post</label>
+    </div>
+    </form>
+
+    <p class="description">
+      By creating an account, you accept our Terms and Conditions,
+       Privacy Policy and Age & Identity Verification Policy.
+    </p>
+     <button type="button" (click)="createAccount()" >CREATE MY ACCOUNT</button>
+   </form>
+   <router-outlet></router-outlet>
+</div>

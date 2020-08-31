@@ -1,0 +1,28 @@
+<div class="container">
+<li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+  <span class="material-icons">home </span>
+  <a routerLink="/">HOME</a>
+</li>
+<li routerLinkActive="active">
+  <span class="material-icons">games</span>
+  <a routerLink="/bet">GAME</a>
+</li>
+<li routerLinkActive="active" *ngIf="isLogged">
+  <span class="material-icons">history</span>
+  <a routerLink="/account">ACCOUNT</a>
+</li>
+
+<li routerLinkActive="active">
+  <span class="material-icons">contact_mail
+  </span>
+  <a routerLink="/control">HELP</a>
+</li>
+<div class="right" [ngClass]="{ change: !isLogged }">
+
+<a class="login" routerLink="/login" *ngIf="!isLogged">LOG IN</a>
+<a *ngIf="isLogged" class="login save" (click)="save()">SAVE</a>
+<a class="login" *ngIf="isLogged" (click)="logout()">LOG OUT</a>
+<a class="register" (click)="direct()" *ngIf="!isLogged">REGISTER</a>
+</div>
+</div>
+

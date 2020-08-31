@@ -1,0 +1,49 @@
+
+
+
+
+<div class="wrap">
+  <div class="withdrawal">
+    <div class="top">
+      <p>Pending Withdrawals Available</p>
+      <a routerLink="/account">
+        <i class="fa fa-times" aria-hidden="true" ></i>
+      </a>
+    </div>
+    <div class="info" *ngIf="pendingWithdrawals.length > 0">
+      <i class="fa fa-info" aria-hidden="true"></i>
+      <p>Select one of the pending transaction to confirm a Withdrawal.</p>
+    </div>
+    <div class="info danger" *ngIf="pendingWithdrawals.length === 0">
+      <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+      <p>There are no withdrawals available to reverse. If you wish to make a deposit instead please
+        <a routerLink="/account/deposit"> click here</a></p>
+    </div>
+      <div class="content">
+        <h2>Pending Withdrawals</h2>
+        <div class="options">
+          <p class="method">Method</p>
+          <p>Amount</p>
+          <p>Requested on</p>
+          <p class="until">Can be Reversed Until</p>
+        </div>
+      <ul class="pendings">
+        <li class="pendings-element" routerLinkActive="active" *ngFor="let withdrawals of pendingWithdrawals;let i = index">
+          <a [routerLink]="['/account/withdrawal-reverse', i]" (click)="reverseWithdrawal(withdrawals.amount, i)" >
+          <p>Bank Transfer</p>
+          <span class="amount">£ {{withdrawals.amount}}</span>
+          <span class="requestedOn">2020-08-22</span>
+          <span class="until">2020-08-23</span>
+        </a>
+        </li>
+      </ul>
+        <h2 class="bottom">£ {{total}} Total</h2>
+    </div>
+      <button class="confirm" *ngIf="pendingWithdrawals.length === 0"(click)="goDeposit()">Continue to Deposit</button>
+      <button class="confirm reverse" *ngIf="pendingWithdrawals.length > 0" (click)="completeReverse()"
+      >Reverse Withdrawals</button>
+    </div>
+      
+    
+   
+  

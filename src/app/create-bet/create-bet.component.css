@@ -1,0 +1,138 @@
+
+.create{
+  margin: 0 auto;
+  width:60%;
+  color: white;
+  text-align: center;
+  /* font-family: 'Indie Flower', cursive; */
+  font-family: 'Roboto', sans-serif;
+}
+h2{
+  padding: 80px 0 20px 0;
+  font-size: 3rem;
+}
+form input{
+  outline: none;
+  border: 1px solid white;
+  border-radius: 3px;
+  font-size: 18px;
+  height: 30px;
+}
+
+input.game{
+  height: 30px; 
+  padding: 0 0 0 20px;
+}
+input.odd{
+  width: 60px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+label{
+  font-weight: bold;
+  padding: 0 5px;
+  transition: 0.4s;
+}
+
+form{
+  display: flex;
+  width: 800px;
+
+}
+button{
+  background-color: white;
+  border: 3px solid white;
+  width: 100px;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+  outline: none;
+}
+button:hover{
+  background-color: rgb(58, 150, 46);
+  border: 3px solid rgb(58, 150, 46);
+}
+.money{
+
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  color:white;
+
+}
+.bets{
+  font-family: 'Roboto', sans-serif;
+ background-color:  rgb(242,172, 14);
+  width: 300px;
+  margin: 40px auto;
+  border-radius: 5px;
+
+}
+.bets>li{
+  padding: 10px;
+  list-style: none;
+  text-align: left;
+  display: flex;
+
+}
+
+.submit{
+  color: rgb(58, 150, 46);
+  width: 100%;
+  height: 30px;
+}
+.submit:hover{
+  color: white;
+}
+.begining{
+  flex-basis: 85%;
+  color: black;
+}
+
+.end{
+  color:rgb(58, 150, 46);
+  font-weight: bold;
+  margin-left: 50px;
+  flex-basis: 15%;
+}
+.title{
+  padding: 80px;
+  font-size: 2rem;
+  color:rgb(58, 150, 46);
+}
+input.stakee{
+  width: 50px;
+  padding: 0 0 0 10px;
+  height: 30px;
+  margin: 0 15px;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 5px;
+  outline: none;
+}
+
+
+.final{
+  color: rgb(219, 16, 16)
+}
+.return{
+  color: black;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.green{
+  color:rgb(58, 150, 46);
+}
+
+
+
+app-account-menu{
+  width: 100%;
+  height: 60px;
+  color: white;
+  display: flex;
+  background-color: black;
+}

@@ -1,0 +1,320 @@
+
+.container{
+   width: 100%;
+   display: flex;
+   background-color: black;
+   font-family: 'Roboto', sans-serif;
+   box-sizing: border-box;
+}
+img{
+
+  width: 30px;
+  height: 30px;
+  padding: 0 5px 0 0;
+}
+i{
+  color: darkgray;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+}
+div.MY-ACCOUNT,
+div.options{
+  position: absolute;
+  border: 1px solid  #aaa;
+  border-radius: 5px;
+  width: 400px;
+  top:23.7vw;
+  left:49.6vw;
+  height: 300px;
+  background-color:black;
+  z-index: 100;
+}
+.yelloww{
+  color: #fb0;
+}
+
+
+.logo{
+  flex-basis: 6%;
+  display: flex;
+  align-items: center;
+  background-image: url('/../../assets/BYC\ MOZE\ B.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.menu{
+  width: 600px;
+  flex-basis: 70%;
+  display: flex;
+  height: 100%;
+}
+.menu-list{
+  flex-basis: 20%;
+  /* color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+  list-style: none;
+  height: 100%;
+  /* cursor: pointer; */
+}
+.menu-list:hover{
+  color: white;
+  transition: 0.5s;
+}
+
+a{
+  color: gray;
+  display: flex;
+   align-items: center;
+  justify-content: center;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover{
+  color: white;
+  transition: 0.5s;
+}
+.deposit{
+  width: 80px;
+  height: 40px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #141414;
+  font-weight: 600;
+  background-color: #fb0;
+  border-radius: 5px;
+  border: 1px solid #fb0;
+  cursor: pointer;
+}
+.deposit:hover{
+  background-color: #fc0;
+  border: 1px solid #fc0;
+  color: black;
+}
+.buttons{
+  display: flex;
+  align-items: center;
+  margin-left: 60px;
+}
+.user{
+  border: 1px solid #faff05;
+  height: 40px;
+  line-height: 40px;
+  width: 80px;
+  margin-left: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.user i{
+  color: white;
+}
+.user.yellow i{
+  color: black;
+}
+li.active-link{
+  border-bottom: 2px solid #fc0;
+  box-sizing: border-box;
+}
+
+.fa{
+  margin-left: 5px;
+}
+.active-link a{
+  color: white;
+  border: none;
+}
+.active-link i{
+  color: white;
+}
+.active-link i.fas.fa-basketball-ball{
+  color: brown;
+}
+.active-link i.fas.fa-plus-circle{
+  color: #3961ac;
+}
+.active-link i.fas.fa-coins{
+  color: #7cdaa6;
+}
+.active-link i.fas.fa-volleyball-ball{
+  color: #fb0;
+}
+
+div.wrap{
+  width: 90%;
+  margin: 10px auto;
+  padding-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 0.1mm solid #929292;
+}
+div.optio{
+  flex-basis: 47%;
+  height: 32px;
+  margin: 5px 0;
+  border-radius: 4px;
+  border: thin solid white;
+}
+div.footer{
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+div.name{
+  flex-basis: 78%;
+}
+div.name p{
+  font-size: 12px;
+  padding: 2px 0;
+}
+button.logout{
+  flex-basis: 22%;
+  height: 24px;
+  background-color: #fc0;
+  outline: none;
+  border: 1px solid #fc0;
+  cursor: pointer;
+  border-radius: 3px;
+}
+div.optio{
+  position: relative;
+  font-size: 14px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: .2s;
+}
+div.optio:hover{
+  background-color: #fc0;
+  border: 1px solid #fc0;
+  color: black;
+}
+div.optio:hover a{
+  color:black;
+}
+div.optio i{
+  position: absolute;
+  line-height: 32px;
+  padding: 0 10px 0 5px;
+}
+div.optio a{
+  color: white;
+  position: absolute;
+  display: inline-block;
+  line-height: 32px;
+  left: 35px;
+  width: 100%;
+}
+
+.yellow{
+  color: black;
+  background-color: #fb0;
+  border-radius: 3px;
+  border: 1px solid #fb0;
+}
+div.MY-ACCOUNT div.title{
+  display: flex;
+  font-size: 14px;
+  width: 100%;
+  height: 50px;
+  border-bottom: thin solid #ddd;
+}
+div.MY-ACCOUNT div.title i{
+  line-height: 50px;
+  color: white;
+  position: absolute;
+  cursor: pointer;
+}
+
+div.MY-ACCOUNT div.title i:first-child{
+   left:5%;
+}
+div.MY-ACCOUNT div.title i:last-child{
+  right: 5%;
+}
+div.MY-ACCOUNT div.title p{
+  margin: 0;
+  line-height: 50px;
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  padding:  0 40px;
+  letter-spacing: 0.8px;
+}
+div.MY-ACCOUNT div.title i:hover{
+  color: #fc0;
+}
+div.MY-ACCOUNT{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+  color: white;
+  height: 351px;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+}
+div.MY-ACCOUNT div.title-element{
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border-left: 4px solid black;
+  border-bottom: thin dashed #2e4068;
+}
+div.MY-ACCOUNT div.title-element:last-child{
+  border-bottom: none;
+}
+
+/* div.space{
+  height: 100px;
+  width: 100%;
+} */
+div.MY-ACCOUNT  div.title-element i{
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: #fb0;
+  margin: 0 0 0 30px;
+}
+div.MY-ACCOUNT div.title-element i.fas.fa-chevron-right{
+  margin: 0 0 0 75px;
+  font-size: 20px;
+}
+div.MY-ACCOUNT  div.title-element:hover{
+  background-color: #141414;
+  cursor: pointer;
+  border-left: 4px solid #fc0;
+}
+div.MY-ACCOUNT div.title-element p,h2{
+  margin: 0;
+}
+div.one-by-one{
+  width: 150px;
+  height: 60px;
+  margin: 0 0 0 20px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+div.one-by-one h2{
+  font-size: 18px;
+  line-height: 18px;
+  padding-bottom: 5px;
+}
+div.one-by-one p{
+  font-size: 13px;
+  color: #3961ac;
+  font-weight: 500;
+  line-height: 14px;
+}
+

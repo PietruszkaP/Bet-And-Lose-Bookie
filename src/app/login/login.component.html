@@ -1,0 +1,58 @@
+
+<div class="backdrop">
+  <div class="wrap">
+    <div class="top">
+      <div class="title">Login</div>
+      <a routerLink="/account">
+        <i class="fa fa-times" aria-hidden="true" ></i>
+      </a>
+    </div>
+    <div class="error" *ngIf="error">
+      <i class="fa fa-exclamation-circle error" aria-hidden="true"></i>
+      <p class="error">Login failed. Please review your details and try again.</p>
+    </div>
+
+  <form autocomplete="off" #f="ngForm">
+    <div class="inputs">
+      <input type="text"
+      class="userID"
+      ngModel
+      name="email"
+      #user="ngModel"
+      required
+      minlength="1"
+      >
+      <i class="fa fa-user" aria-hidden="true" ></i>
+      <label for="user" class="more">Email or User ID</label>
+      <i *ngIf="user.invalid && user.touched" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+      <i *ngIf="user.valid && user.touched" class="fa fa-check-circle" aria-hidden="true"></i>
+    </div>
+   
+    <div class="inputs">
+      <input
+      type="password"
+      ngModel
+      required
+      #password="ngModel"
+      name="password"
+      class="password"
+      >
+      <i class="fa fa-lock" aria-hidden="true"></i>
+      <label for="password" class="more">Password</label>
+      <i *ngIf="password.invalid  && password.touched" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+      <i *ngIf="password.valid && password.touched" class="fa fa-check-circle" aria-hidden="true"></i>
+    </div>
+
+
+    <button class="login disabled"  [disabled]="f.invalid"
+     [ngClass]="{'disabled': f.invalid}"
+      (click)="login(f)" class="login">LOG IN 
+    </button>
+    <button type="button" class="button-register" routerLink="/register/step1">REGISTER NOW!</button>
+  </form>
+  <div class="footer">
+    <a  class="help" routerLink="/control/approach">Help & contact</a>
+    <div class="copyright"></div>
+  </div>
+  </div>
+</div>

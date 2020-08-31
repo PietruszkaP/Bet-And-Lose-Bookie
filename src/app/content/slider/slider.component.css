@@ -1,0 +1,20 @@
+
+div.bar{
+  width: 1065.5px;
+  background-color: black;
+  height: 5px;
+  position: relative;
+  overflow: hidden;
+}
+div.progress{
+position: absolute;
+height: 5px;
+top:0%;
+width: 1065px;
+background-color: #fc0;
+}
+img{
+  width: 100%;
+  height: 100%;
+
+}

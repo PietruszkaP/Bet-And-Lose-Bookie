@@ -1,0 +1,51 @@
+
+div.wrap{
+  position: fixed;
+  left: 50%;
+  top: 55%;
+  width: 400px;
+  height: 250px;
+  background-image:url(../../assets/GIRLS2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translate(-50%, -50%); 
+  border-radius: 3px;
+  /* border: 2px solid #22211f; */
+  border-top: 1px solid  white;
+  border-left: 1px solid  white;
+  border-right: 1px solid white;
+}
+div.success{
+  color: red;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  /* text-transform: uppercase; */
+  left: 15%;
+  font-size: 26px;
+  letter-spacing: 1px;
+}
+div.wrap i{
+  position: absolute;
+  color: #df270f;
+  top:20%;
+  left:50%;
+  transform: translate(-50%, 0);
+  font-size: 70px;
+}
+
+button.confirm{
+  background-color: #fb0;
+  border: 1px solid #fb0;
+  cursor: pointer;
+  color: black;
+  font-weight: 600;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  outline: none;
+  position: absolute;
+  width: 402px;
+  padding: 10px 0px;
+  bottom: 0%;
+  left:-1px;
+}

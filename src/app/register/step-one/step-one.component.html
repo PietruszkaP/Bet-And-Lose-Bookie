@@ -1,0 +1,62 @@
+
+ <div class="container">
+     <div class="numbers">
+        <div class="number one">1</div>
+        <div class="break"></div>
+        <div class="number">2</div>
+        <div class="break"></div>
+        <div class="number">3</div>
+      </div>
+      <form autocomplete="off" #f="ngForm" (ngSubmit)="submitForm(f)">
+        <div class="inputs">
+         <input type="email"
+          id="email"
+          class="email"
+          ngModel
+          name="email"
+          required
+          email
+          #email="ngModel"
+          (keyup)="check(email.value)"
+          >
+          <label for="email">Email</label>
+          <i *ngIf="!email.valid && email.touched" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          <i *ngIf="email.valid && email.touched && !usedEmail" class="fa fa-check-circle" aria-hidden="true"></i>
+        </div>
+        <p class="red" *ngIf="usedEmail">The email address is already in use by another account.</p>
+        <div class="inputs">
+          <input type="text"
+          class="userID"
+          ngModel
+          name="user"
+          #user="ngModel"
+          required
+          maxlength="15"
+          minlength="5"
+          >
+          <i class="fa fa-user" aria-hidden="true" ></i>
+          <label for="user" class="more">User ID</label>
+          <i *ngIf="!user.valid && user.touched" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          <i *ngIf="user.valid && user.touched" class="fa fa-check-circle" aria-hidden="true"></i>
+        </div>
+        <div class="inputs">
+          <input
+          type="password"
+          ngModel
+          required
+          #password="ngModel"
+          name="password"
+          class="password"
+          minlength="6"
+          maxlength="12"
+          >
+          <i class="fa fa-lock" aria-hidden="true"></i>
+          <label for="password" class="more">Password</label>
+          <i *ngIf="!password.valid && password.touched" class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          <i *ngIf="password.valid && password.touched" class="fa fa-check-circle" aria-hidden="true"></i>
+        </div>
+        <button type="submit"[disabled]="f.invalid" [ngClass]="{'disabled': f.invalid}">CONTINUE</button>
+      </form>
+</div>
+
+

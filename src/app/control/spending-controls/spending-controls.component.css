@@ -1,0 +1,45 @@
+
+.container{
+  color: white;
+  width: 620px;
+  display: flex;
+  text-align: left;
+  /* font-size: 1rem; */
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 30px 0 40px 35px;
+}
+
+  h3{
+    padding-bottom: 20px;
+    font-size: .875remrem;
+    color: #ccc;
+  }
+
+.title{
+  width: 100%;
+}
+h4{
+  color: #ccc;
+  display: block;
+  width: 100%;
+}
+p{
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+a{
+  color: #1284E0;
+}
+p.add{
+  width: 100%;
+  padding-top: 20px;
+}
+.more{
+  padding: 10px 0;
+  width: 100%;
+  color: #ccc;
+  font-size: 14px;
+}

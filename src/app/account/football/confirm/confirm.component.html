@@ -1,0 +1,13 @@
+
+
+<div class="container">
+  <form>
+    <input [(ngModel)]="stake" id="stake" class="stake" type="text" (mousedown)="mouseOver()"
+    autocomplete="off"  [ngModelOptions]="{standalone: true}">
+    <label class="pound" for="stake">£</label>
+    <div class="confirm" (click)="onSubmit(stake)">
+      <p class="place">Place Bet</p>
+      <p>Returns: £{{ (stake * return) | number: '1.2'}}</p>
+    </div>
+  </form>
+</div>

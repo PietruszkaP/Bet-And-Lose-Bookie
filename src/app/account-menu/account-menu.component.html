@@ -1,0 +1,139 @@
+
+
+
+
+<div class="container">
+  <div class="logo"></div>
+  <ul class="menu">
+    <li class="menu-list" routerLinkActive="active-link" (click)="open = false">
+      <a routerLink="/account/football">
+        <i class="far fa-futbol"></i>
+        Football
+     </a>
+     </li>
+     <li class="menu-list" routerLinkActive="active-link" (click)="open = false; myAccount = false">
+      <a routerLink="/account/tennis">
+        <i class="fas fa-volleyball-ball"></i>
+        Volleyball
+     </a>
+     </li>
+     <li class="menu-list" routerLinkActive="active-link" (click)="open = false; myAccount = false" >
+      <a routerLink="/account/basketball">
+        <i class="fas fa-basketball-ball"></i>
+        Basketball
+     </a>
+     </li>
+    <li class="menu-list" routerLinkActive="active-link"(click)="openBets()" >
+      <a routerLink="/account/open">
+        <i class="fas fa-coins"></i>
+        Open Bets({{openBetsArray}})
+      </a>
+    </li>
+    <li class="menu-list" routerLinkActive="active-link"(click)="open = false; myAccount = false" >
+     <a routerLink="/account/bet">
+      <i class="fas fa-plus-circle"></i>
+      Create Bet
+    </a>
+    </li>
+  </ul>
+  <div class="buttons">
+    <a class="deposit" (click)="onDeposit()">Deposit</a>
+    <div class="user" (click)="showDiv()" [ngClass]="{yellow: open}">
+      £{{money}}<i class="fas fa-user-tie"></i>
+    </div>
+  </div>
+
+
+</div>
+<div class="options" *ngIf="open">
+  <div class="wrap">
+    <div class="optio open-bets" (click)="openBets()">
+      <i class="fa fa-folder-open" aria-hidden="true"></i>
+      <a>Open Bets</a>
+    </div>
+    <div class="optio settled-bets" (click)="settedBets()">
+      <i class="fa fa-clipboard" aria-hidden="true"></i>
+      <a>Settled Bets</a>
+    </div>
+    <div class="optio depositt" (click)="onDeposit()">
+      <i class="fa fa-cc-visa" aria-hidden="true"></i>
+      <a>Deposit</a>
+    </div>
+    <div class="optio balance-transfer" (click)="balanceTransfer()">
+      <i class="fa fa-share-alt" aria-hidden="true"></i>
+      <a>Balance Transfer</a>
+    </div>
+    <div class="optio withdraw"(click)="onWithdraw()">
+      <i class="fa fa-wpforms" aria-hidden="true"></i>
+      <a>Withdraw</a>
+    </div>
+    <div class="optio reverse-withdrawal" (click)="reverseWithdrawal()">
+      <i class="fa fa-undo" aria-hidden="true"></i>
+      <a>Reverse Withdraw</a>
+    </div>
+    <div class="optio my-account" (click)="goToMyaccount()">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <a>My account</a>
+    </div>
+
+    <div class="optio preferences" (click)="createBet()">
+      <i class="fa fa-cog" aria-hidden="true"></i>
+      <a>Create Your Bet</a>
+    </div>
+    <div class="optio gambling-controls" (click)="gamblingControls()">
+      <i class="fa fa-lock" aria-hidden="true"></i>
+      <a>Gambling controls</a>
+    </div>
+    <div class="optio contact" (click)="contact()">
+      <i class="fa fa-comment-o" aria-hidden="true"></i>
+      <a>Contact</a>
+    </div>
+</div>
+<div class="footer">
+  <div class="name">Hi <span class="yelloww">{{user?.email}}</span><br>
+    <p>Account ID : <span class="yelloww">{{user?.id | slice:24:28 | uppercase}}</span> </p></div>
+  <button class="logout" (click)="onLogOut()">Log Out</button>
+</div>
+</div>
+
+
+<div class="MY-ACCOUNT" *ngIf="myAccount">
+  <div class="title">
+    <i class="fas fa-chevron-left"(click)="myAccount = false; open=true"></i>
+    <p>My Account</p>
+    <i class="fas fa-times"(click)="myAccount = false"></i>
+  </div>
+  <div class="title-element account-history" routerLink="/account/balance-transfer"(click)="myAccount = false">
+    <i class="fas fa-chart-line"></i>
+    <div class="one-by-one">
+      <h2>
+        Account History
+      </h2>
+      <p>Statements View</p>
+      <p>Net Deposit Information</p>
+    </div>
+    <i class="fas fa-chevron-right"></i>
+  </div>
+  <div class="title-element personal-details">
+    <i class="fas fa-user-cog"></i>
+    <div class="one-by-one">
+      <h2>
+        Personal Details
+      </h2>
+      <p>Contact Details</p>
+      <p>Marketing Preferences</p>
+    </div>
+    <i class="fas fa-chevron-right"></i>
+  </div>
+  <div class="title-element login-security">
+    <i class="fas fa-unlock-alt"></i>
+    <div class="one-by-one">
+      <h2>
+        Login Security
+      </h2>
+      <p>Password</p>
+    </div>
+    <i class="fas fa-chevron-right"></i>
+  </div>
+
+</div>

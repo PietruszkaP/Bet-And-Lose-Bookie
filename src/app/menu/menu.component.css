@@ -1,0 +1,24 @@
+
+.menu{
+  color:white;
+  text-align: center;
+  height: 318px;
+  width: 100%;
+  display: flex;
+  background-color: black;
+  border-bottom: 3px solid #fc0;
+}
+.middle{
+  flex-basis: 50%;
+  display: flex;
+}
+.right{
+  flex-basis: 50%;
+  display: flex;
+}
+.black{
+ width: 100%;
+}
+.man{
+  width: 100%;
+}

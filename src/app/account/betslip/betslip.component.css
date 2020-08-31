@@ -1,0 +1,170 @@
+
+div.wrap{
+  position: fixed;
+  background-color: #fb0;
+  width: 380px;
+  height: 50px;
+  bottom: 0;
+  display: flex;
+  left: 70%;
+  color: black;
+}
+div.betSlip,
+div.myBets{
+width: 50%;
+justify-content: center;
+align-items: center;
+display: flex;
+cursor: pointer;
+}
+div.betSlip a,
+div.myBets a{
+  padding: 0 10px;
+  color: black;
+  font-weight: 600;
+  display: inline-block;
+  text-decoration: none;
+}
+div.betSlip i,
+div.betSlip a{
+  color: black;
+  letter-spacing: 1px;
+}
+
+div.betSlip a{
+  font-weight: 400;
+}
+
+div.betSlip.active a{
+  color: black;
+  font-weight: 600;
+}
+div.betSlip.active i{
+  color:black;
+}
+div.number{
+  color: white;
+  background-color: red;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  position: absolute;
+  top: 20%;
+  left: 16.5%;
+}
+div.content{
+  position: fixed;
+  background-color: #fb0;
+  border-top-left-radius: 3px;
+  width: 380px;
+  min-height: 340px;
+  bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  left: 70%;
+  color: black;
+  font-weight: 500;
+}
+div.top{
+flex-basis: 100%;
+height: 40px;
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+div.top p{
+  line-height: 40px;
+  display: inline-block;
+  margin: 0 300px 0 10px;
+}
+div.quick{
+  font-size: 14px;
+  font-weight: 500;
+  color: darkgreen;
+  height: 30px;
+  width: 100%;
+  margin: 0 10px;
+}
+div.selection{
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 40px;
+  background-color: #fa0;
+  padding: 0 10px 0 30px;
+}
+div.betslip-array{
+  width: 100%;
+  min-height: 240px;
+}
+div.number.diferetn-position{
+  top: 50%;
+  left: 3%;
+  transform: translate(0%, -50%);
+}
+div.selection-title{
+  padding-right: 150px;
+}
+ img{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+div.clear{
+  color: #242424;
+  height: 40px;
+  line-height: 40px;
+  font-weight: 400;
+  cursor: pointer;
+}
+div.clear:hover{
+  color:black;
+  font-weight: 500;
+}
+li.betslip-element{
+  width: 100%;
+  background-color: #fc0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  height: 60px;
+  border-bottom: 1px dashed #242424;
+}
+li.betslip-element:last-child{
+  margin-bottom: 60px;
+}
+
+div.bet-description p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 12px;
+  padding-left: 2px;
+}
+div.bet-description p.bigger{
+  font-size: 13px;
+  font-weight: 500;
+  padding: 2px;
+}
+li.betslip-element img{
+padding: 0 10px;
+}
+div.odd{
+  width: 44px;
+  height: 23px;
+  background-color: #141414;
+  color: white;
+  border-radius: 2px;
+  top: 50%;
+  transform: translate(0%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 80%;
+  position: absolute;
+}

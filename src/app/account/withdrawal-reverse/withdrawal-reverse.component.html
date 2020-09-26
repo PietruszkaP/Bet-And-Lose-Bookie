@@ -37,13 +37,13 @@
         </a>
         </li>
       </ul>
-        <h2 class="bottom">£ {{total}} Total</h2>
+        <h2 class="bottom">£ {{total | number: '1.2'}} Total</h2>
     </div>
       <button class="confirm" *ngIf="pendingWithdrawals.length === 0"(click)="goDeposit()">Continue to Deposit</button>
       <button class="confirm reverse" *ngIf="pendingWithdrawals.length > 0" (click)="completeReverse()"
       >Reverse Withdrawals</button>
     </div>
-      
-    
-   
-  
+
+
+
+

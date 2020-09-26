@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BankService } from 'src/app/bank.service';
+import { Store } from '@ngrx/store';
+import * as fromApp from './../store/app.reducer';
 
 @Component({
   selector: 'app-balance-transfer',
@@ -11,10 +12,12 @@ export class BalanceTransferComponent implements OnInit {
 
   transactionArray = [];
 
-  constructor(private bank: BankService) { }
+  constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
-   this.transactionArray = this.bank.getTransactionArray();
+    this.store.select('bank').subscribe( bank => {
+      this.transactionArray = bank.transactionArray;
+    });
   }
 
 }

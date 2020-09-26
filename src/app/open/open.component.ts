@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { BankService } from '../bank.service';
-import { Bet } from './../Bet';
-import { Coupon } from './../Coupon';
+import { Store } from '@ngrx/store';
+import * as BankActions from './../NGRX-BANK/bank.actions';
+import * as fromApp from './../store/app.reducer';
 
 @Component({
   selector: 'app-open',
@@ -12,17 +12,20 @@ import { Coupon } from './../Coupon';
 export class OpenComponent implements OnInit {
 
   openBets = [];
+  date = new Date().getTime();
 
-  constructor(private location: Location, private bank: BankService) { }
+  constructor(private location: Location, private store: Store<fromApp.AppState>) { }
 
 
   ngOnInit(): void {
-      this.openBets = this.bank.getOpenBets().map( openBets => {
-      return openBets;
+    this.store.select('bank').pipe( bankState => {
+      return bankState;
+    }).subscribe( bankState => {
+      this.openBets = bankState.openBets;
     });
   }
 
-  changeStyle(): any {
+  changeStyle(): { 'justify-content': string} {
     if (this.openBets.length === 1 ) {
       return { 'justify-content' : 'flex-start'};
     }
@@ -32,26 +35,27 @@ export class OpenComponent implements OnInit {
   }
 
   addToLoseBets(i: number): void {
-    const lostBet = this.bank.openBets.filter( (bets, index) => {
+    const lostBet = this.openBets.filter( (bets, index) => {
       return index === i;
       });
-
-    this.openBets = this.openBets.filter( (bets, index) => {
-      return index !== i;
-      });
-    this.bank.openBets = this.openBets;
-    this.bank.addLostBets(lostBet);
+    this.store.dispatch(new BankActions.AddLostBet({bets: lostBet[0].bets,
+                                                    stake: lostBet[0].stake,
+                                                    potentialReturn: lostBet[0].newpotentialReturn,
+                                                    finalOdds: lostBet[0].finalOdds,
+                                                    date: this.date}));
+    this.store.dispatch(new BankActions.RemoveBet(i));
   }
 
 addToWonBets(i: number): void {
-  const wonBet = this.bank.openBets.filter( (bet, index) => {
+  const wonBet = this.openBets.filter( (bet, index) => {
     return index === i;
   });
-  this.openBets = this.openBets.filter( (bet , index) => {
-    return index !== i;
-  });
-  this.bank.openBets = this.openBets;
-  this.bank.addWonBets(wonBet);
+  this.store.dispatch(new BankActions.AddWonBet({bets: wonBet[0].bets,
+                                                 stake: wonBet[0].stake,
+                                                 potentialReturn: wonBet[0].newpotentialReturn,
+                                                 finalOdds: wonBet[0].finalOdds,
+                                                 date: this.date}));
+  this.store.dispatch(new BankActions.RemoveBet(i));
   }
 
 }

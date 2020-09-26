@@ -9,7 +9,9 @@
     </div>
     <div class="error" *ngIf="error">
       <i class="fa fa-exclamation-circle error" aria-hidden="true"></i>
-      <p class="error">Login failed. Please review your details and try again.</p>
+      <p class="error">Login failed ... {{message}}
+         <!-- Please review your details and try again. -->
+        </p>
     </div>
 
   <form autocomplete="off" #f="ngForm">
@@ -27,7 +29,7 @@
       <i *ngIf="user.invalid && user.touched" class="fa fa-exclamation-circle" aria-hidden="true"></i>
       <i *ngIf="user.valid && user.touched" class="fa fa-check-circle" aria-hidden="true"></i>
     </div>
-   
+
     <div class="inputs">
       <input
       type="password"
@@ -46,7 +48,7 @@
 
     <button class="login disabled"  [disabled]="f.invalid"
      [ngClass]="{'disabled': f.invalid}"
-      (click)="login(f)" class="login">LOG IN 
+      (click)="login(f)" class="login">LOG IN
     </button>
     <button type="button" class="button-register" routerLink="/register/step1">REGISTER NOW!</button>
   </form>

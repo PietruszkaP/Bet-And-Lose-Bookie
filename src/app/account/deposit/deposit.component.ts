@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BankService } from 'src/app/bank.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromApp from './../../store/app.reducer';
+import * as BankActions from './../../NGRX-BANK/bank.actions';
 
 @Component({
   selector: 'app-deposit',
@@ -12,7 +14,7 @@ export class DepositComponent implements OnInit {
 
   title = 'Debit Card';
 
-  constructor(private bankServie: BankService, private router: Router) { }
+  constructor(private router: Router, private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +24,7 @@ export class DepositComponent implements OnInit {
 
   deposit(form: NgForm): void {
   const money = form.value.amount;
-  this.bankServie.depositMoney(+money);
+  this.store.dispatch(new BankActions.DepositMoney(+money));
   // Router direct first fo Loading spinner then dislay alert Success
   this.router.navigate(['/loading']);
   setTimeout( () => {

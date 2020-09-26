@@ -2,8 +2,13 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { Subscription } from 'rxjs';
-import { BankService } from 'src/app/bank.service';
 import { HttpClient } from '@angular/common/http';
+import * as fromApp from './../store/app.reducer';
+import * as AuthActions from './../auth/store/auth.actions';
+import * as BankActions from './../NGRX-BANK/bank.actions';
+import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-nav',
@@ -16,10 +21,15 @@ export class NavComponent implements OnInit, OnDestroy {
   userSub: Subscription;
 
   constructor(private router: Router, private auth: AuthService,
-              private bankService: BankService, private http: HttpClient) { }
+              private http: HttpClient,
+              private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
-    this.userSub = this.auth.user.subscribe( user => {
+    this.userSub = this.store.select('auth').pipe(
+      map(authState => {
+        return authState.user;
+      })
+    ).subscribe( user => {
       this.isLogged = !!user;
     });
   }
@@ -37,11 +47,12 @@ export class NavComponent implements OnInit, OnDestroy {
 
   logout(): void {
     this.isLogged = false;
+    this.store.dispatch(new AuthActions.Logout());
     this.router.navigate(['/']);
   }
   save(): void {
     this.http.delete('https://ng-complete-guide-e03f7.firebaseio.com/user-data.json').subscribe();
-    this.bankService.storeInformation();
+    this.store.dispatch(new BankActions.StoreData());
     this.router.navigate(['/loading']);
     setTimeout( () => {
       this.router.navigate(['/account/bet/success']);

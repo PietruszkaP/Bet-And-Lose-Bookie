@@ -1,22 +1,24 @@
 
-export interface BetArray {
-    bets: [{game: string, odd: string}];
-    date: number;
-    finalOdds: string;
-    id: number;
-    newpotentialReturn: number | string;
-    stake: string;
+
+export interface InitialData {
+  BetSlip?: BetSlip[];
+  LostBets?: SingleBet[];
+  WonBets?: SingleBet[];
+  money: string;
+  openBets?: SingleBet[];
+  pendingWithdrawal?: PendingTransaction[];
+  reverseIndex: number;
+  reverseMoney: number;
+  transactionArray?: TransactionArray[];
 }
 
-export interface BetLoseArray {
-  [index: number]: [
-    {bets: [{game: string, odd: string}],
-    date: number,
-    finalOdds: string,
-    id: number,
-    newpotentialReturn: number | string,
-    stake: string}];
-
+export interface SingleBet {
+    bets: Bet[];
+    date: number;
+    finalOdds: number;
+    id?: number;
+    newpotentialReturn: number | string;
+    stake: number;
 }
 
 export interface BetSlip {
@@ -40,16 +42,23 @@ export interface PendingTransaction {
   requestedUntil: number;
 }
 
-export interface ReturnData {
-  transactionArray: any[];
-  open: any[];
-  won: any[];
-  lost: any[];
-  money: number;
-  pending: any[];
-}
+// export interface ReturnData {
+//   transactionArray: any[];
+//   open: any[];
+//   won: any[];
+//   lost: any[];
+//   money: number;
+//   pending: any[];
+// }
 export interface TransactionArray {
-  amount: number | string;
-  date: number;
   transaction: string;
+  amount: number;
+  date: number;
+}
+
+export class User {
+  constructor(public email: string,
+              public id: string,
+              public _token: string,
+              public _tokenExpirationDate: Date) {}
 }

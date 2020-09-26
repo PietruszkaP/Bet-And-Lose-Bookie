@@ -42,7 +42,7 @@ const routes: Routes = [
   ]},
   {path: 'loading', component: LoadingSpinnerComponent},
   {path: 'account', component: AccountComponent,
-  // canActivate: [AuthGuard],
+  canActivate: [AuthGuard],
   children: [
     {path: 'balance-transfer', component: BalanceTransferComponent},
     {path: 'setted', component: SettedComponent },

@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { BankService } from './../bank.service';
 import { Bet } from '../Bet';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromApp from './../store/app.reducer';
+import * as BankActions from './../NGRX-BANK/bank.actions';
 
 @Component({
   selector: 'app-create-bet',
@@ -20,10 +22,14 @@ export class CreateBetComponent implements OnInit {
   potentialReturn: number;
   title: string;
 
-  constructor(private bank: BankService, private router: Router) { }
+  constructor(private router: Router, private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
-    this.money = this.bank.getMoney();
+    this.store.select('bank').pipe(bankState => {
+      return bankState;
+    }).subscribe( bankState => {
+      this.money = bankState.money;
+    });
   }
 
   onAddBet(form: NgForm): void {
@@ -33,8 +39,8 @@ export class CreateBetComponent implements OnInit {
     this.finalOdds = 1;
     if (form.valid) {
      this.bets.push(bet);
-     this.bets.map( bet => {
-      return this.finalOdds = (this.finalOdds * bet.odd);
+     this.bets.map( b => {
+      return this.finalOdds = (this.finalOdds * b.odd);
      });
      form.reset();
     }
@@ -43,13 +49,15 @@ export class CreateBetComponent implements OnInit {
 
   placeBet(): void{
     this.stake = this.read.nativeElement.value;
-    if (this.stake > this.bank.money ) {
-      return alert('You dont have enough credit to bet');
+    if ( +this.stake > +this.money) {
+      return alert(`Your balance is ${this.money} and you try to bet ${this.stake}`);
     }
     this.potentialReturn = +(this.stake * this.finalOdds).toFixed(2);
-    this.bank.addOpenBet([...this.bets], this.stake , this.potentialReturn, this.finalOdds.toFixed(2));
+    this.store.dispatch(new BankActions.AddOpenBet({bets: [...this.bets],
+                                                    stake: this.stake,
+                                                    potentialReturn: this.potentialReturn,
+                                                    finalOdds: +this.finalOdds.toFixed(2)}));
     this.bets = [];
-    this.money = this.bank.getMoney();
     this.router.navigate(['/account/open']);
   }
 }

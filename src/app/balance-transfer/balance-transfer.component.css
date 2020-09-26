@@ -69,10 +69,13 @@ div.content{
 }
 div.content ul li{
   display: flex;
-  padding: 5px 0;
+  /* padding: 5px 0; */
+}
+div.content ul li:first-child{
+  padding-top: 5px;
 }
 div.container div.content p.amount{
-width: 230px
+width: 260px;
 }
 div.container div.content p.transaction{
   padding-right: 165px;

@@ -1,6 +1,9 @@
-import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
-import { BankService } from 'src/app/bank.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromApp from './../../store/app.reducer';
+import * as BankActions from './../../NGRX-BANK/bank.actions';
+
 
 @Component({
   selector: 'app-withdrawal',
@@ -12,16 +15,18 @@ export class WithdrawalComponent implements OnInit {
   money: number;
   amount: number;
 
-  constructor(private bankService: BankService, private router: Router) { }
+  constructor(private router: Router, private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
-    this.bankService.changedMoney.subscribe( money => {
-      this.money = money;
+    this.store.select('bank').pipe(bankState => {
+      return bankState;
+    }).subscribe( bankState => {
+      this.money = bankState.money;
     });
   }
 
   withdrawal(amount: number): void {
-    this.bankService.withdrawalMoney(amount);
+    this.store.dispatch(new BankActions.WithdrawalMoney(amount));
     this.router.navigate(['/loading']);
     setTimeout( () => {
       this.router.navigate(['/account/bet/success']);

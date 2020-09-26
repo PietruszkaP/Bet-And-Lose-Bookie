@@ -1,33 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { BankService } from './../bank.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../auth/user.model';
+import * as fromApp from './../store/app.reducer';
+import * as AuthActions from './../auth/store/auth.actions';
+import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-account-menu',
   templateUrl: './account-menu.component.html',
   styleUrls: ['./account-menu.component.css']
 })
-export class AccountMenuComponent implements OnInit {
+export class AccountMenuComponent implements OnInit, OnDestroy {
 
   openBetsArray: number;
   money: number;
   name: string;
   open = false;
-  user: User;
+  user: any;
   myAccount = false;
+  storeSub: Subscription;
 
 
-  constructor(private bank: BankService, private router: Router, private auth: AuthService) { }
+  constructor(private router: Router,
+              private auth: AuthService,
+              private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
-    this.bank.changedMoney.subscribe(money => {
-      this.money = money;
-    });
-    this.openBetsArray = this.bank.getOpenBets().length;
-    this.bank.openLength.subscribe( num => {
-      this.openBetsArray = num;
+    this.store.select('bank').pipe(bankState => {
+      return bankState;
+    }).subscribe( State => {
+      this.money = State.money;
+      this.openBetsArray = State.openBets.length;
     });
   }
 
@@ -35,12 +42,18 @@ export class AccountMenuComponent implements OnInit {
   showDiv(): void{
     this.open = !this.open;
     this.myAccount = false;
-    this.user = this.auth.getUser();
+    this.storeSub = this.store.select('auth').pipe(
+      map( authState => {
+        return authState.user;
+      })
+    ).subscribe( user => {
+      this.user = user;
+    });
   }
 
   onLogOut(): void {
     this.open = false;
-    this.auth.user.next(null);
+    this.store.dispatch(new AuthActions.Logout());
   }
 
   onDeposit(): void {
@@ -85,5 +98,10 @@ export class AccountMenuComponent implements OnInit {
   goToMyaccount(): void {
     this.open = false;
     this.myAccount = true;
+  }
+  ngOnDestroy(): void {
+    if (this.storeSub) {
+      this.storeSub.unsubscribe();
+    }
   }
 }

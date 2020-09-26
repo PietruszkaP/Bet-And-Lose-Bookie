@@ -50,9 +50,12 @@ import { BasketballComponent } from './account/basketball/basketball.component';
 import { ShowBetsComponent } from './account/show-bets/show-bets.component';
 import { BetslipComponent } from './account/betslip/betslip.component';
 import { ConfirmComponent } from './account/football/confirm/confirm.component';
-
-
-
+import * as fromApp from './store/app.reducer';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import {AuthEffects } from './auth/store/auth.effects';
+import { BankEffects } from './NGRX-BANK/bank.effects';
 
 
 
@@ -106,10 +109,13 @@ import { ConfirmComponent } from './account/football/confirm/confirm.component';
     ConfirmComponent,
   ],
   imports: [
-   BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    StoreModule.forRoot(fromApp.appReducer),
+    StoreDevtoolsModule.instrument({logOnly: true}),
+    EffectsModule.forRoot([AuthEffects, BankEffects]),
   ],
   providers: [
     {

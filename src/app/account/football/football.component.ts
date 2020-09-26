@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BankService } from './../../bank.service';
+import * as fromApp from './../../store/app.reducer';
+import * as BankActions from './../../NGRX-BANK/bank.actions';
+import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
 
 
 
@@ -26,28 +29,30 @@ export class FootballComponent implements OnInit {
        {homeTeam: 'Chelsea', awayTeam: 'Brighton and Hove Albion', win: '1.45', draw: '4.20', lose: '5.80', over: '1.85', under: '1.75'},
   ];
 
-  constructor(private router: Router, private bank: BankService) { }
+  constructor(private router: Router, private store: Store<fromApp.AppState>) { }
 
 
   ngOnInit(): void{
-    this.bank.changedBetSlipArray.subscribe( betSlip => {
+    this.store.select('bank').pipe(
+      map(bankState => {
+        return bankState.BetSlip;
+      })
+    ).subscribe( betSlip => {
       this.betslip = betSlip;
-      if ( betSlip) {
-        this.open = false;
-      }
-    });
+    }
+    );
   }
   // Getting value of selected game
-  getValue(odd: string, home: string, away: string, type: string, i: number, position: string): void {
+  getValue(od: string, home: string, away: string, type: string, i: number, position: string): void {
     this.open = true;
     const id = i + position;
+    const odd = (+od).toFixed(2);
     const bet = {home, away, type, odd, id};
-    // tslint:disable-next-line:no-shadowed-variable
-    const check = this.bank.BetSlip.findIndex( bet => {
-    return bet.home === home;
+    const check = this.betslip.findIndex( b => {
+    return b.home === home;
    });
     if (check === -1) {
-     this.bank.addToBetSlip(bet);
+    this.store.dispatch(new BankActions.AddToBetSlip({bet}));
    }
   }
 

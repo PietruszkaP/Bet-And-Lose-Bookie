@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { BankService } from './../bank.service';
 import { Router } from '@angular/router';
 
 
@@ -16,7 +15,7 @@ export class OpenBetComponent implements OnInit {
 @Output() loses = new EventEmitter<void>();
 @Output() won = new EventEmitter<void>();
 
-  constructor(private bank: BankService, private router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }

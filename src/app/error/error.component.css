@@ -15,7 +15,7 @@ div.wrap{
   left: 37vw;
   width: 400px;
   border-radius: 5px;
-  height: 200px;
+  height: 250px;
   background-color: #141414;
   padding: 36px 36px 0 76px;
   color: white;
@@ -24,7 +24,7 @@ div.wrap{
 
 div.wrap button{
   position: absolute;
-  top: 140px;
+  top: 180px;
   left: 36px;
   width: 328px;
   padding: 10px;
@@ -38,5 +38,8 @@ div.wrap button{
 i.fa.fa-info-circle{
   position: absolute;
   left: 36px;
-  top: 36px;
+  top: 38px;
+}
+div.wrap p{
+  line-height: 28px;
 }

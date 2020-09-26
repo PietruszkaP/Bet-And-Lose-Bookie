@@ -101,14 +101,14 @@ a:hover{
 .buttons{
   display: flex;
   align-items: center;
-  margin-left: 60px;
+  margin-left: 40px;
 }
 .user{
   border: 1px solid #faff05;
   height: 40px;
   line-height: 40px;
-  width: 80px;
-  margin-left: 10px;
+  width: 100px;
+  margin-left: 20px;
   text-align: center;
   cursor: pointer;
 }
@@ -271,11 +271,6 @@ div.MY-ACCOUNT div.title-element{
 div.MY-ACCOUNT div.title-element:last-child{
   border-bottom: none;
 }
-
-/* div.space{
-  height: 100px;
-  width: 100%;
-} */
 div.MY-ACCOUNT  div.title-element i{
   width: 60px;
   height: 60px;

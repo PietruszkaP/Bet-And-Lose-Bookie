@@ -1,6 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { BankService } from 'src/app/bank.service';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromApp from './../../../store/app.reducer';
+import * as BankActions from './../../../NGRX-BANK/bank.actions';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-confirm',
@@ -10,25 +14,27 @@ import { Router } from '@angular/router';
 export class ConfirmComponent implements OnInit {
 
   money = 0;
-  return = 1;
+  finalOdds = 1;
   betslip = [];
   stake: number;
 
-  constructor(private bank: BankService, private router: Router) { }
+  constructor(private router: Router, private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
-    this.bank.changedBetSlipArray.subscribe( betSlip => {
-      this.betslip = betSlip;
-      });
-    this.bank.changedMoney.subscribe( money => {
-      this.money = money;
+    this.store.select('bank').pipe(
+      map(bankState => {
+        return bankState;
+      })
+    ).subscribe( bankState => {
+      this.betslip = bankState.BetSlip;
+      this.money = +bankState.money;
     });
   }
 
   mouseOver(): void {
-    this.return = 1;
+    this.finalOdds = 1;
     this.betslip.map( bet => {
-      this.return = (this.return * bet.odd);
+      this.finalOdds = (this.finalOdds * bet.odd);
     });
   }
   // Method wchih add new Bet to service from Footbal Voleyball nad Basketball component
@@ -37,16 +43,16 @@ export class ConfirmComponent implements OnInit {
       return alert('You dont have enough credit !!! ');
     }
 
-    const finalStake = +stake * this.return;
+    const finalReturn = +stake * this.finalOdds;
     const bets = [];
-    this.betslip.map( bet => {
-      const game = bet.home + ' - ' + bet.away;
-      bets.push({ game, odd: bet.odd });
+    this.betslip.map( b => {
+      const game = b.home + ' - ' + b.away;
+      bets.push({ game, odd: b.odd });
     });
-    this.bank.addOpenBet([...bets], stake , finalStake.toFixed(2), this.return);
+    const bet = {bets: [...bets], stake, potentialReturn: +finalReturn.toFixed(2), finalOdds: +this.finalOdds.toFixed(2) };
+    this.store.dispatch(new BankActions.AddOpenBet(bet));
     this.router.navigate(['/account/open']);
-    this.bank.clearBetSlip();
+    this.store.dispatch(new BankActions.ClearBetSlip());
   }
-
 
 }

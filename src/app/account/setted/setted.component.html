@@ -23,13 +23,13 @@
           <i class="fa fa-check" aria-hidden="true"></i>
           <p class="acumulator">
             {{wonBet.bets.length > 1 ? 'Acumulator': 'Single'}}
-            @{{wonBet.finalOdds | number: '1.2'}}
+            @{{wonBet.finalOdds }}
           </p>
           <p class="stake">Stake: £{{wonBet.stake}}</p>
         </div>
         <div class="green">
           <i class="fa fa-trophy" aria-hidden="true"></i>
-          <p>You won £{{wonBet.newpotentialReturn}} (inc.stake)</p>
+          <p>You won £{{wonBet.potentialReturn}} (inc.stake)</p>
         </div>
         <div class="bets" *ngIf="clickedWon && selectedWon === i && titleWon ==='won'">
           <li class="bets-bet" *ngFor="let be of wonBet.bets">
@@ -60,8 +60,8 @@
         <div class="blue">
           <i class="fa fa-times" aria-hidden="true"></i>
           <p class="acumulator">
-            {{lostBet.bets.length > 1 ? 'Acumulator': 'Single'}}
-            @{{lostBet.finalOdds | number: '1.2'}}
+            {{lostBet.bets?.length > 1 ? 'Acumulator': 'Single'}}
+            @{{lostBet.finalOdds }}
           </p>
           <p class="stake">Stake: £{{lostBet.stake}}</p>
         </div>
@@ -107,4 +107,4 @@
 </div>
 
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

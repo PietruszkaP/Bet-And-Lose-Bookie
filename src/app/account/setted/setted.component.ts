@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BankService } from 'src/app/bank.service';
-import { Params } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromApp from './../../store/app.reducer';
+
 
 @Component({
   selector: 'app-setted',
@@ -10,7 +11,7 @@ import { Params } from '@angular/router';
 export class SettedComponent implements OnInit {
 
   wonBets = [];
-  lostBets: any = [];
+  lostBets = [];
   display = false;
   field = {
     data: '24hours',
@@ -30,28 +31,32 @@ export class SettedComponent implements OnInit {
   now = Math.round(new Date().getTime());
   yesterday = this.now - (24 * 60 * 60 * 1000);
   sevenDays = this.now - (7 * 24 * 60 * 60 * 1000);
-  twentyFourDays = this.now - ( 24 * 24 * 60 * 60 * 1000);
+  // U NEED TO CHANGE THAT NOW IS LONGER THEN 24
+  twentyFourDays = this.now - ( 240 * 24 * 60 * 60 * 1000);
 
-  constructor(private bankService: BankService) { }
+  constructor( private store: Store<fromApp.AppState>) { }
 
   // Initial we share Lost Bets and Won Bets in last 24 hours
   ngOnInit(): void {
-    this.getArrays();
     this.checkCorrectDate(this.yesterday);
+    this.getArrays();
+  }
+  getArrays(): void {
+    this.store.select('bank').pipe( bankState => {
+      return bankState;
+    }
+    ).subscribe( bankState => {
+      // bankState.WonBets.map( array => {
+      //   this.wonBets.push(array);
+      // });
+      this.wonBets = bankState.WonBets;
+      this.lostBets = bankState.LostBets;
+      // bankState.LostBets.map( array => {
+      //   this.lostBets = [{...array}];
+      // });
+      });
   }
 
-    getArrays(): void {
-      this.bankService.getLostBets().map( array => {
-          array.map( bets => {
-            this.lostBets.push(bets);
-          })
-          });
-      this.bankService.getWonBets().map( array => {
-        array.map( bets => {
-          this.wonBets.push(bets);
-        });
-      });
-    }
   viewLastBets(): void {
     if (this.lostBets.length === 0 && this.wonBets.length === 0) {
       this.display = true;

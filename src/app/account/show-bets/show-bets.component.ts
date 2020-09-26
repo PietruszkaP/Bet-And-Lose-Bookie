@@ -1,5 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { BankService } from 'src/app/bank.service';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as fromApp from './../../store/app.reducer';
+import * as BankActions from './../../NGRX-BANK/bank.actions';
+import { map } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-show-bets',
@@ -7,30 +11,39 @@ import { BankService } from 'src/app/bank.service';
   styleUrls: [ './show-bets.component.css'
   ]
 })
-export class ShowBetsComponent implements OnInit {
+export class ShowBetsComponent implements OnInit, OnDestroy {
 
+  private storeSub: Subscription;
   betslip = [];
   @Input() gamesArray = [];
   @Input() title: string;
   @Input() imageSrc: string;
 
-  constructor(private bank: BankService) { }
+  constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
-    this.bank.changedBetSlipArray.subscribe( betSlip => {
-      this.betslip = betSlip;
+    this.storeSub = this.store.select('bank').pipe(
+      map(bankState => {
+        return bankState.BetSlip;
+      })
+    ).subscribe( BetSlip => {
+      this.betslip = BetSlip;
     });
   }
  // Getting value of selected game //
   getValue(odd: string, home: string, away: string, type: string, i: number, position: string, game: any): void {
     const id = i + position;
     const bet = {home, away, type, odd, id};
-    // tslint:disable-next-line:no-shadowed-variable
-    const check = this.bank.BetSlip.findIndex( bet => {
-    return bet.home === home;
+    const check = this.betslip.findIndex( b => {
+    return b.home === home;
    });
     if (check === -1) {
-     this.bank.addToBetSlip(bet);
+    this.store.dispatch(new BankActions.AddToBetSlip({bet}));
    }
+  }
+  ngOnDestroy(): void {
+    if (this.storeSub) {
+      this.storeSub.unsubscribe();
+    }
   }
 }

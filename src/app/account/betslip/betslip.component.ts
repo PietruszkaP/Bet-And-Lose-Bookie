@@ -1,7 +1,11 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { BankService } from 'src/app/bank.service';
+import { Store } from '@ngrx/store';
+import * as fromApp from './../../store/app.reducer';
+import * as BankActions from './../../NGRX-BANK/bank.actions';
+import { map } from 'rxjs/operators';
+
 
 
 @Component({
@@ -14,15 +18,21 @@ export class BetslipComponent implements OnInit {
   betSlip = [];
   open = false;
 
-  constructor(private router: Router, private bank: BankService, private location: Location) { }
+  constructor(private router: Router,
+              private store: Store<fromApp.AppState>,
+              private location: Location) { }
 
   ngOnInit(): void {
-    this.bank.changedBetSlipArray.subscribe( betSlip => {
-      this.betSlip = betSlip;
-      if (betSlip) {
-        this.open = true;
-      }
-    });
+      this.store.select('bank').pipe(
+        map( bankState => {
+          return bankState.BetSlip;
+        })
+      ).subscribe(betSlip => {
+        if (betSlip) {
+          this.open = true;
+          this.betSlip = betSlip;
+        }
+      });
   }
 
   openBetSlip(): void {
@@ -30,16 +40,15 @@ export class BetslipComponent implements OnInit {
   }
   // Method clear BetSlip Array in service and refresh component
   clearBetslip(): void {
-    this.bank.clearBetSlip();
+    this.store.dispatch(new BankActions.ClearBetSlip());
     setTimeout( () => {
       this.router.navigateByUrl('/refresh', { skipLocationChange: true}).then( () => {
         this.router.navigate([decodeURI(this.location.path())]);
       });
     }, 10);
   }
-
   // Method delete selected bet
   delete(index: number): void {
-    this.betSlip.splice(index, 1);
+    this.store.dispatch(new BankActions.DeleteBet(index));
   }
 }

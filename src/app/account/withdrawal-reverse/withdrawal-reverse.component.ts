@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { BankService } from 'src/app/bank.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Store } from '@ngrx/store';
+import * as fromApp from './../../store/app.reducer';
+import * as BankActions from './../../NGRX-BANK/bank.actions';
 
 @Component({
   selector: 'app-withdrawal-reverse',
@@ -11,27 +12,26 @@ import { Subject } from 'rxjs';
 export class WithdrawalReverseComponent implements OnInit {
 
   pendingWithdrawals = [];
-  money: number;
-  i: number;
   total = 0;
 
-  constructor(private bankService: BankService, private router: Router) { }
+  constructor(private router: Router, private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
-   this.pendingWithdrawals = this.bankService.getPendingTransactions();
+   this.store.select('bank').pipe(bankState => {
+     return bankState;
+   }).subscribe(bankState => {
+     this.pendingWithdrawals = bankState.pendingWithdrawal;
+   });
    this.pendingWithdrawals.map( withdrawal => {
     return this.total += +withdrawal.amount;
    });
   }
 
   reverseWithdrawal(money: number, i: number): void {
-    this.bankService.giveMoney(money, i);
+    this.store.dispatch(new BankActions.ReverseStart({index: +i, money: +money}));
   }
   completeReverse(): void {
-    const mony = this.bankService.reverseWithdrawal;
-    const index = this.bankService.index;
-    this.bankService.depositMoney(+mony);
-    this.pendingWithdrawals.splice( index, 1);
+    this.store.dispatch(new BankActions.ReverseWithdrawal());
     // For better user experience
     this.router.navigate(['/loading']);
     setTimeout( () => {

@@ -2,7 +2,7 @@
 <div class="container">
   <div class="wrap">
     <i class="fa fa-info-circle" aria-hidden="true"></i>
-    <p>Something went wrong. Register filed. Please check your detials again. </p>
-    <button routerLink="/register/step1">Try again</button>
+    <p>Something went wrong<br> {{error}}<br> Please check your detials again. </p>
+    <button (click)="clearError()">Try again</button>
   </div>
 </div>

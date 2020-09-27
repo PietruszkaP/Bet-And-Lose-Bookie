@@ -124,7 +124,7 @@ export function bankReducer( state = initialState, action: BankActions.BankActio
           ...state,
           openBets: filteredBets,
         };
-      case BankActions.SET_INITIAL_DATA:
+      case BankActions.FETCH_DATA_SUCCESS:
         const responseData = action.payload;
         console.log(action.payload);
         return{

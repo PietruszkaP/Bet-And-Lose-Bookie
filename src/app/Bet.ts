@@ -4,7 +4,7 @@ export interface InitialData {
   BetSlip?: BetSlip[];
   LostBets?: SingleBet[];
   WonBets?: SingleBet[];
-  money: string;
+  money: number;
   openBets?: SingleBet[];
   pendingWithdrawal?: PendingTransaction[];
   reverseIndex: number;
